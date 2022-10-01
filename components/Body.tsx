@@ -1,12 +1,18 @@
 import { useForm } from 'react-hook-form';
-import { labelClassName, TextField } from './TextField';
+import { SubmitButton } from './SubmitButton';
+import { TextField } from './TextField';
 
 export const Body = () => {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm();
+    } = useForm({
+        defaultValues: {
+            fullName: '',
+            id: '',
+        },
+    });
 
     return (
         <div
@@ -22,42 +28,25 @@ export const Body = () => {
                     <TextField
                         key="fullName"
                         displayName="שם מלא"
-                        register={{ ...register('fullName', { required: true }) }}
+                        register={{
+                            ...register('fullName', { required: true }),
+                        }}
+                        fieldError={errors.fullName}
                     />
                     <TextField
                         key="id"
                         displayName="מספר ת.ז"
-                        register={{ ...register('id', { required: true }) }}
+                        register={{
+                            ...register('id', {
+                                required: true,
+                                valueAsNumber: true,
+                                validate: (value) =>
+                                    value.toString().length === 9 && +value > 0,
+                            }),
+                        }}
+                        fieldError={errors.id}
                     />
-                    <div className="flex w-full justify-center">
-                        <input
-                            className={`
-                                ${labelClassName}
-                                mt-6
-                                w-full
-                                cursor-pointer
-                                rounded
-                                border-none
-                                bg-pink-400
-                                p-5
-                                font-extrabold
-                                tracking-widest
-                                shadow-md
-                                transition
-                                duration-150
-                                ease-in-out
-                                hover:bg-pink-500
-                                hover:shadow-lg 
-                                focus:shadow-lg
-                                focus:outline-none
-                                focus:ring-0
-                                active:bg-pink-600
-                                active:shadow-lg
-                                `}
-                            value="שלח"
-                            type="submit"
-                        />
-                    </div>
+                    <SubmitButton />
                 </div>
             </form>
         </div>
