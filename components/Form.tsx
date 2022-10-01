@@ -7,7 +7,7 @@ import { Loading } from './Loading';
 
 interface RegisterPayload {
     fullName: string;
-    id: string;
+    idNumber: string;
 }
 
 export const Form = () => {
@@ -46,13 +46,13 @@ export const Form = () => {
                     key="id"
                     displayName="מספר ת.ז"
                     register={{
-                        ...register('id', {
+                        ...register('idNumber', {
                             required: true,
                             validate: (value) =>
                                 value.toString().length === 9 && +value > 0,
                         }),
                     }}
-                    fieldError={errors.id}
+                    fieldError={errors.idNumber}
                 />
                 <div className="flex w-full flex-col items-center justify-center space-y-12">
                     <SubmitButton />

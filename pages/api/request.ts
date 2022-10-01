@@ -1,23 +1,45 @@
+import { Redis } from '@upstash/redis';
+import { Ratelimit } from '@upstash/ratelimit';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { z } from 'zod';
+import { registerRequest } from '../../server/BL';
+import { requestSchema } from '../../server/model/Request';
 
-const requestSchema = z.object({
-    fullName: z.string().min(1),
-    id: z.string().length(9).regex(/^\d+$/),
+const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL || '',
+    token: process.env.UPSTASH_REDIS_REST_TOKEN || '',
 });
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+const rateLimit = new Ratelimit({
+    redis: redis,
+    limiter: Ratelimit.fixedWindow(5, '5 s'),
+});
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const identifier = 'api';
+    const rateLimitResult = await rateLimit.limit(identifier);
+    res.setHeader('X-RateLimit-Limit', rateLimitResult.limit);
+    res.setHeader('X-RateLimit-Remaining', rateLimitResult.remaining);
+    if (!rateLimitResult.success)
+        return res.status(429).json({
+            message: 'The request has been rate limited.',
+            rateLimitState: rateLimitResult,
+        });
+
     if (req.method === 'POST') {
-        try {
-            const request = requestSchema.parse(req.body);
-            console.log('success', request);
-            return res.status(200).send({
-                sucess: true,
-            });
-        } catch (e) {
+        const parseResult = requestSchema.safeParse(req.body);
+
+        if (!parseResult.success) {
             return res.status(400).send({
                 message: 'Bad Request',
             });
         }
+
+        const request = parseResult.data;
+
+        await registerRequest(request);
+
+        return res.status(200).send({
+            sucess: true,
+        });
     }
 }
