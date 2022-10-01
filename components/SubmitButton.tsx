@@ -2,9 +2,8 @@ import { labelClassName } from './TextField';
 
 export const SubmitButton = () => {
     return (
-        <div className="flex w-full justify-center">
-            <input
-                className={`
+        <input
+            className={`
                 ${labelClassName}
                 mt-6
                 w-full
@@ -27,9 +26,8 @@ export const SubmitButton = () => {
                 active:bg-pink-600
                 active:shadow-lg
                 `}
-                value="שלח"
-                type="submit"
-            />
-        </div>
+            value="שלח"
+            type="submit"
+        />
     );
 };
