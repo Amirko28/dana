@@ -8,7 +8,7 @@ export const Body = () => {
     return (
         <div
             dir="rtl"
-            className="flex h-screen w-screen flex-col items-center justify-center bg-zinc-700 font-body"
+            className="flex h-full w-full flex-col items-center justify-center bg-zinc-700 font-body"
         >
             <QueryClientProvider client={queryClient}>
                 <Form />

@@ -1,5 +1,6 @@
 import type { UseFormRegisterReturn, FieldError } from 'react-hook-form';
-import { labelClassName } from '../styles/tailwind/textLabel';
+import { labelClassName } from '../../styles/tailwind/textLabel';
+import { ErrorMessage } from './ErrorMessage';
 
 interface Props {
     displayName: string;
@@ -7,7 +8,7 @@ interface Props {
     fieldError?: FieldError;
 }
 
-export const TextField = ({ displayName, register, fieldError }: Props) => {
+export const FileUpload = ({ displayName, register, fieldError }: Props) => {
     return (
         <div className="flex flex-col space-y-3">
             <div className="flex flex-row items-center justify-start">
@@ -24,11 +25,3 @@ export const TextField = ({ displayName, register, fieldError }: Props) => {
         </div>
     );
 };
-
-interface ErrorMessageProps {
-    message: string;
-}
-
-const ErrorMessage = ({ message }: ErrorMessageProps) => (
-    <p className="mt-1 mr-2 text-xs text-red-500">{message}</p>
-);
