@@ -2,8 +2,9 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { SubmitButton } from './SubmitButton';
-import { labelClassName, TextField } from './TextField';
+import { TextField } from './TextField';
 import { Loading } from './Loading';
+import { labelClassName } from '../styles/tailwind/textLabel';
 
 interface RegisterPayload {
     fullName: string;
@@ -57,7 +58,7 @@ export const Form = () => {
                 <div className="flex w-full flex-col items-center justify-center space-y-12">
                     <SubmitButton />
                     {mutation.isLoading ? (
-                        <Loading text="שולח..." />
+                        <Loading />
                     ) : mutation.isError ? (
                         <div className={labelClassName}>התרחשה שגיאה...</div>
                     ) : mutation.isSuccess ? (

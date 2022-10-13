@@ -1,9 +1,5 @@
-interface Props {
-    text: string;
-}
-
-export const Loading = ({ text }: Props) => (
-    <div role="status">
+export const Loading = () => (
+    <div role="status" dir="rtl">
         <svg
             aria-hidden="true"
             className="mr-2 h-8 w-8 animate-spin fill-pink-600 text-gray-200 dark:text-gray-300"

@@ -1,4 +1,4 @@
-import { labelClassName } from './TextField';
+import { labelClassName } from '../styles/tailwind/textLabel';
 
 export const SubmitButton = () => {
     return (

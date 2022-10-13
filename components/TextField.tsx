@@ -1,12 +1,11 @@
 import type { UseFormRegisterReturn, FieldError } from 'react-hook-form';
+import { labelClassName } from '../styles/tailwind/textLabel';
 
 interface Props {
     displayName: string;
     register: UseFormRegisterReturn;
     fieldError?: FieldError;
 }
-
-export const labelClassName = 'text-2xl font-bold text-gray-300';
 
 export const TextField = ({ displayName, register, fieldError }: Props) => {
     return (
@@ -21,7 +20,7 @@ export const TextField = ({ displayName, register, fieldError }: Props) => {
                     <></>
                 )}
             </div>
-            <input className="h-8 w-60 rounded" {...register} />
+            <input className="h-8 w-72 rounded" {...register} />
         </div>
     );
 };

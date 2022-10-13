@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { IntroQuestion } from '../components/IntroQuestion';
+import { Body } from '../components/Body';
 
 const Home: NextPage = () => {
     return (
@@ -9,7 +9,7 @@ const Home: NextPage = () => {
                 <title>דנה כתר</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <IntroQuestion />
+            <Body />
         </>
     );
 };
