@@ -22,17 +22,17 @@ export const TextField = ({
         <div
             className={`${labelClassName} relative z-0 h-20 ${getWidth(
                 variant
-            )} space-y-0`}
+            )} -space-y-2`}
         >
             <input
                 type="text"
-                id="floating_standard"
+                id={displayName}
                 className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-lg text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
                 placeholder=" "
                 {...register}
             />
             <label
-                htmlFor="floating_standard"
+                htmlFor={displayName}
                 className="absolute top-3 -z-10 origin-[0] -translate-y-6 translate-x-1/4 scale-75 truncate text-gray-300 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:-translate-x-0 peer-placeholder-shown:scale-100 peer-focus:right-0 peer-focus:-translate-y-6 peer-focus:translate-x-1/4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-300 peer-focus:dark:text-blue-500"
             >
                 {displayName}

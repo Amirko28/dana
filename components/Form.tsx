@@ -45,6 +45,7 @@ export const Form = () => {
     );
 
     const {
+        control,
         register,
         handleSubmit,
         reset,
@@ -446,7 +447,7 @@ export const Form = () => {
                 />
                 <Radio
                     baseKey="degreeEligibility"
-                    displayName="האם קיימת זכאות לתואר ראשון/ שני?"
+                    displayName="האם קיימת זכאות לתואר ראשון / שני?"
                     register={{
                         ...register('degreeEligibility', {
                             required: true,
@@ -470,6 +471,7 @@ export const Form = () => {
                         ...register('dischargeDateFromMilitary', { required: true }),
                     }}
                     fieldError={errors.fullName}
+                    control={control}
                 />
                 <TextArea
                     key="childrenInfo"
