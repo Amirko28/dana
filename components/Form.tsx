@@ -7,7 +7,6 @@ import { Loading } from './Loading';
 import { labelClassName } from '../styles/tailwind/textLabel';
 import { defaultSelectKey, Select } from './common/Select';
 import { Checkbox } from './common/Checkbox';
-import { FileUpload } from './common/FileUpload';
 import { DateField } from './common/DateField';
 
 interface RegisterPayload {
@@ -15,32 +14,19 @@ interface RegisterPayload {
     idNumber: string;
     taxCheck: string;
     marriage: string;
-    marriageFile: unknown[];
     independent: string;
     cleanedTax: string;
     compensation: string;
     payedTaxCompensation: string;
-    gotMoneyFromBituhLeumi2016: string;
-    gotMoneyFromBituhLeumi2017: string;
-    gotMoneyFromBituhLeumi2018: string;
-    gotMoneyFromBituhLeumi2019: string;
-    gotMoneyFromBituhLeumi2020: string;
-    gotMoneyFromBituhLeumi2021: string;
+    gotMoneyFromBituhLeumi: string;
     withdrewMoney: string;
     depositedMoney: string;
     stockExchangeActivity: string;
     mashkanta: string;
     disabledFamily: string;
-    disabledFamilyFiles: unknown[];
     familyHospitalization: string;
-    donations2016: string;
-    donations2017: string;
-    donations2018: string;
-    donations2019: string;
-    donations2020: string;
-    donations2021: string;
+    donations: string;
     degreeEligibility: string;
-    degreeEligibilityFiles: unknown[];
     dischargeDateFromMilitary: Date;
     childrenNames: string[];
     childrenIds: string[];
@@ -71,7 +57,7 @@ export const Form = () => {
                 mutation.mutate(data);
             })}
         >
-            <div className="space-y-8">
+            <div className="space-y-11">
                 <TextField
                     key="fullName"
                     displayName="שם מלא"
@@ -197,105 +183,15 @@ export const Form = () => {
                     }}
                 />
                 <Select
-                    baseKey="gotMoneyFromBituhLeumi2016"
-                    displayName="האם קיבלת בשנת 2016 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
+                    baseKey="gotMoneyFromBituhLeumi"
+                    displayName="האם קיבלת בשנים 2016-2021 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
                     register={{
-                        ...register('gotMoneyFromBituhLeumi2016', {
+                        ...register('gotMoneyFromBituhLeumi', {
                             required: true,
                             validate: (value) => value !== defaultSelectKey,
                         }),
                     }}
-                    fieldError={errors.gotMoneyFromBituhLeumi2016}
-                    selectOptions={{
-                        dmeiLeida: 'דמי לידה',
-                        dmeiMiluim: 'דמי מילואים',
-                        dmeiAvtala: 'דמי אבטלה',
-                        dmeiTeunatAvoda: 'דמי תאונת עבודה',
-                        no: 'לא',
-                    }}
-                />
-                <Select
-                    baseKey="gotMoneyFromBituhLeumi2017"
-                    displayName="האם קיבלת בשנת 2017 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
-                    register={{
-                        ...register('gotMoneyFromBituhLeumi2017', {
-                            required: true,
-                            validate: (value) => value !== defaultSelectKey,
-                        }),
-                    }}
-                    fieldError={errors.gotMoneyFromBituhLeumi2017}
-                    selectOptions={{
-                        dmeiLeida: 'דמי לידה',
-                        dmeiMiluim: 'דמי מילואים',
-                        dmeiAvtala: 'דמי אבטלה',
-                        dmeiTeunatAvoda: 'דמי תאונת עבודה',
-                        no: 'לא',
-                    }}
-                />
-                <Select
-                    baseKey="gotMoneyFromBituhLeumi2018"
-                    displayName="האם קיבלת בשנת 2018 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
-                    register={{
-                        ...register('gotMoneyFromBituhLeumi2018', {
-                            required: true,
-                            validate: (value) => value !== defaultSelectKey,
-                        }),
-                    }}
-                    fieldError={errors.gotMoneyFromBituhLeumi2018}
-                    selectOptions={{
-                        dmeiLeida: 'דמי לידה',
-                        dmeiMiluim: 'דמי מילואים',
-                        dmeiAvtala: 'דמי אבטלה',
-                        dmeiTeunatAvoda: 'דמי תאונת עבודה',
-                        no: 'לא',
-                    }}
-                />
-                <Select
-                    baseKey="gotMoneyFromBituhLeumi2019"
-                    displayName="האם קיבלת בשנת 2019 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
-                    register={{
-                        ...register('gotMoneyFromBituhLeumi2019', {
-                            required: true,
-                            validate: (value) => value !== defaultSelectKey,
-                        }),
-                    }}
-                    fieldError={errors.gotMoneyFromBituhLeumi2019}
-                    selectOptions={{
-                        dmeiLeida: 'דמי לידה',
-                        dmeiMiluim: 'דמי מילואים',
-                        dmeiAvtala: 'דמי אבטלה',
-                        dmeiTeunatAvoda: 'דמי תאונת עבודה',
-                        no: 'לא',
-                    }}
-                />
-                <Select
-                    baseKey="gotMoneyFromBituhLeumi2020"
-                    displayName="האם קיבלת בשנת 2020 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
-                    register={{
-                        ...register('gotMoneyFromBituhLeumi2020', {
-                            required: true,
-                            validate: (value) => value !== defaultSelectKey,
-                        }),
-                    }}
-                    fieldError={errors.gotMoneyFromBituhLeumi2020}
-                    selectOptions={{
-                        dmeiLeida: 'דמי לידה',
-                        dmeiMiluim: 'דמי מילואים',
-                        dmeiAvtala: 'דמי אבטלה',
-                        dmeiTeunatAvoda: 'דמי תאונת עבודה',
-                        no: 'לא',
-                    }}
-                />
-                <Select
-                    baseKey="gotMoneyFromBituhLeumi2021"
-                    displayName="האם קיבלת בשנת 2021 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
-                    register={{
-                        ...register('gotMoneyFromBituhLeumi2021', {
-                            required: true,
-                            validate: (value) => value !== defaultSelectKey,
-                        }),
-                    }}
-                    fieldError={errors.gotMoneyFromBituhLeumi2021}
+                    fieldError={errors.gotMoneyFromBituhLeumi}
                     selectOptions={{
                         dmeiLeida: 'דמי לידה',
                         dmeiMiluim: 'דמי מילואים',
@@ -380,18 +276,12 @@ export const Form = () => {
                 />
                 <TextField
                     key="disabledFamily"
-                    displayName="האם קיים במשפחה קרוב נטול יכולת (פיגור שכלי/עיוור/אוטיזם/לקוי למידה/חירש)?"
+                    displayName="האם קיים במשפחה קרוב נטול יכולת (פיגור שכלי / עיוור / אוטיזם / לקוי למידה / חירש)?"
                     register={{
                         ...register('disabledFamily', { required: true }),
                     }}
                     fieldError={errors.disabledFamily}
-                />
-                <FileUpload
-                    key="disabledFamilyFile"
-                    displayName="יש לצרף אישורים מתאימים"
-                    register={{
-                        ...register('disabledFamilyFiles', { required: true }),
-                    }}
+                    variant="long"
                 />
                 <Select
                     baseKey="familyHospitalization"
@@ -409,52 +299,13 @@ export const Form = () => {
                     }}
                 />
                 <TextField
-                    key="donations2016"
-                    displayName="האם ביצעת תרומות במהלך שנת 2016 בסכום העולה על 200 ₪ (סך התרומות במצטבר)?"
+                    key="donations"
+                    displayName="האם ביצעת תרומות במהלך השנים 2016-2021 בסכום העולה על 200 ₪ (סך התרומות במצטבר)?"
                     register={{
-                        ...register('donations2016', { required: true }),
+                        ...register('donations', { required: true }),
                     }}
-                    fieldError={errors.donations2016}
-                />
-                <TextField
-                    key="donations2017"
-                    displayName="האם ביצעת תרומות במהלך שנת 2017 בסכום העולה על 200 ₪ (סך התרומות במצטבר)?"
-                    register={{
-                        ...register('donations2017', { required: true }),
-                    }}
-                    fieldError={errors.donations2017}
-                />
-                <TextField
-                    key="donations2018"
-                    displayName="האם ביצעת תרומות במהלך שנת 2018 בסכום העולה על 200 ₪ (סך התרומות במצטבר)?"
-                    register={{
-                        ...register('donations2018', { required: true }),
-                    }}
-                    fieldError={errors.donations2018}
-                />
-                <TextField
-                    key="donations2019"
-                    displayName="האם ביצעת תרומות במהלך שנת 2019 בסכום העולה על 200 ₪ (סך התרומות במצטבר)?"
-                    register={{
-                        ...register('donations2019', { required: true }),
-                    }}
-                    fieldError={errors.donations2019}
-                />
-                <TextField
-                    key="donations2020"
-                    displayName="האם ביצעת תרומות במהלך שנת 2020 בסכום העולה על 200 ₪ (סך התרומות במצטבר)?"
-                    register={{
-                        ...register('donations2020', { required: true }),
-                    }}
-                    fieldError={errors.donations2020}
-                />
-                <TextField
-                    key="donations2021"
-                    displayName="האם ביצעת תרומות במהלך שנת 2021 בסכום העולה על 200 ₪ (סך התרומות במצטבר)?"
-                    register={{
-                        ...register('donations2021', { required: true }),
-                    }}
-                    fieldError={errors.donations2021}
+                    fieldError={errors.donations}
+                    variant="long"
                 />
                 <Select
                     baseKey="degreeEligibility"
@@ -471,13 +322,6 @@ export const Form = () => {
                         no: 'לא',
                     }}
                 />
-                <FileUpload
-                    key="degreeEligibilityFiles"
-                    displayName="יש לצרף צילום זכאות לתואר"
-                    register={{
-                        ...register('degreeEligibilityFiles', { required: true }),
-                    }}
-                />
                 <DateField
                     key="dischargeDateFromMilitary"
                     displayName="אנא ציין את תאריך השחרור שלך משירות בצהל (תום שירות סדיר)"
@@ -492,6 +336,7 @@ export const Form = () => {
                     register={{
                         ...register('childrenNames', { required: true }),
                     }}
+                    variant="long"
                 />
                 <TextField
                     key="childrenIds"
@@ -499,6 +344,7 @@ export const Form = () => {
                     register={{
                         ...register('childrenIds', { required: true }),
                     }}
+                    variant="long"
                 />
                 <DateField
                     key="childrenBirthDates"

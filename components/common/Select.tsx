@@ -25,7 +25,7 @@ export const Select = ({
     fieldError,
     selectOptions,
 }: Props) => {
-    selectOptions[defaultSelectKey] = '';
+    selectOptions[defaultSelectKey] = 'בחר';
     const Options = () => (
         <>
             {sortOptions(Object.keys(selectOptions)).map((key) => (
