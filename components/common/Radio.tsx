@@ -5,28 +5,29 @@ interface Props {
     baseKey: string;
     displayName: string;
     register: UseFormRegisterReturn;
-    checkboxOptions: CheckboxOption[];
+    radioOptions: RadioOption[];
 }
 
-interface CheckboxOption {
+interface RadioOption {
     displayName: string;
     value: string;
 }
 
-export const Checkbox = ({ baseKey, displayName, register, checkboxOptions }: Props) => {
+export const Radio = ({ baseKey, displayName, register, radioOptions }: Props) => {
     const Options = () => (
         <div className="flex flex-row">
-            {checkboxOptions.map((option) => (
+            {radioOptions.map((option, index) => (
                 <div
                     className="mb-4 ml-6 flex items-center"
                     key={`${baseKey}-${option.displayName}`}
                 >
                     <input
                         id={`${baseKey}-${option.value}`}
-                        type="checkbox"
+                        type="radio"
                         value={option.value}
                         className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                         {...register}
+                        defaultChecked={index === 0}
                     />
                     <label
                         htmlFor={`${baseKey}-${option.value}`}

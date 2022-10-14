@@ -22,7 +22,7 @@ export const TextField = ({
         <div
             className={`${labelClassName} relative z-0 h-20 ${getWidth(
                 variant
-            )} -space-y-4`}
+            )} space-y-0`}
         >
             <input
                 type="text"
@@ -33,11 +33,11 @@ export const TextField = ({
             />
             <label
                 htmlFor="floating_standard"
-                className="absolute top-3 -z-10 origin-[0] -translate-y-6 translate-x-1/4 scale-75 truncate text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:-translate-x-0 peer-placeholder-shown:scale-100 peer-focus:right-0 peer-focus:-translate-y-6 peer-focus:translate-x-1/4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
+                className="absolute top-3 -z-10 origin-[0] -translate-y-6 translate-x-1/4 scale-75 truncate text-gray-300 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:-translate-x-0 peer-placeholder-shown:scale-100 peer-focus:right-0 peer-focus:-translate-y-6 peer-focus:translate-x-1/4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-300 peer-focus:dark:text-blue-500"
             >
                 {displayName}
             </label>
-            <div className="-mt-8">
+            <div>
                 {fieldError?.type === 'required' ? (
                     <ErrorMessage message="שדה חובה" />
                 ) : fieldError?.type === 'validate' ? (

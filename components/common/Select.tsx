@@ -39,7 +39,18 @@ export const Select = ({
     return (
         <div key={baseKey} className="flex flex-col space-y-3">
             <div className="flex flex-row items-center justify-start">
-                <label className={labelClassName}>{displayName}</label>{' '}
+                <label htmlFor={displayName} className={`${labelClassName} mb-2 block`}>
+                    {displayName}
+                </label>
+            </div>
+            <select
+                id={displayName}
+                className={`block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-2xl text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500`}
+                {...register}
+            >
+                <Options />
+            </select>
+            <div className={`${labelClassName} mr-1`}>
                 {fieldError?.type === 'required' ? (
                     <ErrorMessage message="שדה חובה" />
                 ) : fieldError?.type === 'validate' ? (
@@ -48,9 +59,6 @@ export const Select = ({
                     <></>
                 )}
             </div>
-            <select className="h-8 w-72 rounded" {...register}>
-                <Options />
-            </select>
         </div>
     );
 };
