@@ -31,25 +31,25 @@ export const DateField = ({ displayName, fieldValue, setValue }: Props) => {
                 </label>
             </div>
             <Calendar
-                className={`mr-2 rounded-md !bg-zinc-800 text-base font-bold text-gray-300`}
-                tileClassName={'hover:!bg-zinc-900'}
+                className={`mr-2 rounded-md !bg-zinc-900 text-base font-bold text-gray-300`}
+                tileClassName={'hover:!bg-black'}
                 nextLabel={
-                    <NextLabel className="flex h-full w-full items-center justify-center !bg-zinc-800 text-base hover:!bg-zinc-900" />
+                    <NextLabel className="flex h-full w-full items-center justify-center !bg-zinc-900 text-base hover:!bg-black" />
                 }
                 next2Label={
-                    <DoubleNextLabel className="flex h-full w-full items-center justify-center !bg-zinc-800 text-base hover:!bg-zinc-900" />
+                    <DoubleNextLabel className="flex h-full w-full items-center justify-center !bg-zinc-900 text-base hover:!bg-black" />
                 }
                 prevLabel={
-                    <PreviousLabel className="flex h-full w-full items-center justify-center !bg-zinc-800 text-base hover:!bg-zinc-900" />
+                    <PreviousLabel className="flex h-full w-full items-center justify-center !bg-zinc-900 text-base hover:!bg-black" />
                 }
                 prev2Label={
-                    <DoublePreviousLabel className="flex h-full w-full items-center justify-center !bg-zinc-800 text-base hover:!bg-zinc-900" />
+                    <DoublePreviousLabel className="flex h-full w-full items-center justify-center !bg-zinc-900 text-base hover:!bg-black" />
                 }
                 navigationLabel={({ date, view }) => (
                     <NavigationLabel
                         date={date}
                         view={view}
-                        className="flex h-full w-full items-center justify-center !bg-zinc-800 text-base hover:!bg-zinc-900"
+                        className="flex h-full w-full items-center justify-center !bg-zinc-900 text-base hover:!bg-black"
                     />
                 )}
                 locale={'he'}

@@ -18,7 +18,7 @@ export const TextArea = ({ displayName, register }: Props) => {
             <textarea
                 id="message"
                 rows={4}
-                className="block h-full w-full resize-none rounded-lg border border-gray-600 bg-zinc-800 p-2.5 text-lg text-white placeholder:text-gray-400 focus:border-blue-500  focus:ring-blue-500 "
+                className="block h-full w-full resize-none rounded-lg border border-gray-600 bg-zinc-900 p-2.5 text-lg text-white transition ease-in-out placeholder:text-gray-400 focus:border-blue-500 focus:outline-none"
                 placeholder="הקלד כאן..."
                 {...register}
             ></textarea>
