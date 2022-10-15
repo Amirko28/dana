@@ -10,29 +10,30 @@ import { Checkbox } from './common/Checkbox';
 import { DateField } from './common/DateField';
 import { TextArea } from './common/TextArea';
 import { Radio } from './common/Radio';
+import { useEffect } from 'react';
 
-interface RegisterPayload {
+export type RegisterPayload = {
     fullName: string;
     idNumber: string;
     taxCheck: string;
     marriage: string;
-    independent: string;
-    parallelJobs: string;
+    parallelJobs: boolean;
+    independent: boolean;
     cleanedTax: string;
-    compensation: string;
+    compensation: boolean;
     payedTaxCompensation: string;
     gotMoneyFromBituhLeumi: string;
     withdrewMoney: string;
-    depositedMoney: string;
+    depositedMoney: boolean;
     stockExchangeActivity: string;
     mashkanta: string;
     disabledFamily: string;
-    familyHospitalization: string;
-    donations: string;
-    degreeEligibility: string;
+    familyHospitalization: boolean;
+    donations: boolean;
+    degreeEligibility: boolean;
     dischargeDateFromMilitary: Date;
     childrenInfo: string;
-}
+};
 
 export const Form = () => {
     const mutation = useMutation(
@@ -45,12 +46,21 @@ export const Form = () => {
     );
 
     const {
-        control,
+        watch,
         register,
         handleSubmit,
         reset,
+        setValue,
         formState: { errors },
     } = useForm<RegisterPayload>();
+
+    useEffect(() => {
+        const subscription = watch((value, { name, type }) =>
+            console.log(value, name, type)
+        );
+
+        return () => subscription.unsubscribe();
+    });
 
     return (
         <form
@@ -84,9 +94,7 @@ export const Form = () => {
                     baseKey="taxCheck"
                     displayName="האם ביצעת בדיקת החזר מס עבור השנים 2016-2021?"
                     register={{
-                        ...register('taxCheck', {
-                            required: true,
-                        }),
+                        ...register('taxCheck'),
                     }}
                     radioOptions={[
                         {
@@ -103,44 +111,63 @@ export const Form = () => {
                         },
                     ]}
                 />
-                <Select
+                <Checkbox
                     baseKey="marriage"
                     displayName="האם התחתנת (ברבנות) במהלך השנים 2016-2022?"
                     register={{
                         ...register('marriage', {
                             required: true,
-                            validate: (value) => value !== defaultSelectKey,
                         }),
                     }}
-                    fieldError={errors.marriage}
-                    selectOptions={{
-                        2016: 'בשנת 2016',
-                        2017: 'בשנת 2017',
-                        2018: 'בשנת 2018',
-                        2019: 'בשנת 2019',
-                        2020: 'בשנת 2020',
-                        2021: 'בשנת 2021',
-                        2022: 'בשנת 2022',
-                        notRabanut: 'נשוי אך לא דרך הרבנות',
-                        notMarried: 'רווק / פרוד / אלמן / גרוש',
-                    }}
+                    checkboxOptions={[
+                        {
+                            displayName: 'ב2016',
+                            value: '2016',
+                        },
+                        {
+                            displayName: 'ב2017',
+                            value: '2017',
+                        },
+                        {
+                            displayName: 'ב2018',
+                            value: '2018',
+                        },
+                        {
+                            displayName: 'ב2019',
+                            value: '2019',
+                        },
+                        {
+                            displayName: 'ב2020',
+                            value: '2020',
+                        },
+                        {
+                            displayName: 'ב2021',
+                            value: '2021',
+                        },
+                        {
+                            displayName: 'ב2022',
+                            value: '2022',
+                        },
+                        {
+                            displayName: 'נשוי אך לא ברבנות',
+                            value: 'notRabanut',
+                        },
+                    ]}
                 />
                 <Radio
                     baseKey="parallelJobs"
                     displayName="האם במהלך השנים 2016-2021 עבדת במספר עבודות במקביל, או פחות מ-12 חודשים בשנה?"
                     register={{
-                        ...register('parallelJobs', {
-                            required: true,
-                        }),
+                        ...register('parallelJobs'),
                     }}
                     radioOptions={[
                         {
                             displayName: 'לא',
-                            value: 'no',
+                            value: false,
                         },
                         {
                             displayName: 'כן',
-                            value: 'yes',
+                            value: true,
                         },
                     ]}
                 />
@@ -148,18 +175,16 @@ export const Form = () => {
                     baseKey="independent"
                     displayName="האם במהלך השנים 2016-2022 עבדת גם כעצמאי?"
                     register={{
-                        ...register('independent', {
-                            required: true,
-                        }),
+                        ...register('independent'),
                     }}
                     radioOptions={[
                         {
                             displayName: 'לא',
-                            value: 'no',
+                            value: false,
                         },
                         {
                             displayName: 'כן',
-                            value: 'yes',
+                            value: true,
                         },
                     ]}
                 />
@@ -167,9 +192,7 @@ export const Form = () => {
                     baseKey="cleanedTax"
                     displayName="האם נוכה לך מס הכנסה בתלושי השכר במהלך השנים?"
                     register={{
-                        ...register('cleanedTax', {
-                            required: true,
-                        }),
+                        ...register('cleanedTax'),
                     }}
                     radioOptions={[
                         {
@@ -190,18 +213,16 @@ export const Form = () => {
                     baseKey="compensation"
                     displayName="האם קיבלת פיצויי פיטורין במהלך השנים 2016-2021 (רלוונטי רק אם השכר גבוה מ-12,000₪)?"
                     register={{
-                        ...register('compensation', {
-                            required: true,
-                        }),
+                        ...register('compensation'),
                     }}
                     radioOptions={[
                         {
                             displayName: 'לא',
-                            value: 'no',
+                            value: false,
                         },
                         {
                             displayName: 'כן',
-                            value: 'yes',
+                            value: true,
                         },
                     ]}
                 />
@@ -209,54 +230,46 @@ export const Form = () => {
                     baseKey="payedTaxCompensation"
                     displayName="האם שילמת מס על פיצויי פיטורין?"
                     register={{
-                        ...register('payedTaxCompensation', {
-                            required: true,
-                        }),
+                        ...register('payedTaxCompensation'),
                     }}
                     checkboxOptions={[
                         {
-                            displayName: 'בשנת 2016',
+                            displayName: 'ב2016',
                             value: '2016',
                         },
                         {
-                            displayName: 'בשנת 2017',
+                            displayName: 'ב2017',
                             value: '2017',
                         },
                         {
-                            displayName: 'בשנת 2018',
+                            displayName: 'ב2018',
                             value: '2018',
                         },
                         {
-                            displayName: 'בשנת 2019',
+                            displayName: 'ב2019',
                             value: '2019',
                         },
                         {
-                            displayName: 'בשנת 2020',
+                            displayName: 'ב2020',
                             value: '2020',
                         },
                         {
-                            displayName: 'בשנת 2021',
+                            displayName: 'ב2021',
                             value: '2021',
                         },
                         {
-                            displayName: 'בשנת 2022',
+                            displayName: 'ב2022',
                             value: '2022',
                         },
                     ]}
                 />
-                <Radio
+                <Checkbox
                     baseKey="gotMoneyFromBituhLeumi"
                     displayName="האם קיבלת בשנים 2016-2021 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
                     register={{
-                        ...register('gotMoneyFromBituhLeumi', {
-                            required: true,
-                        }),
+                        ...register('gotMoneyFromBituhLeumi'),
                     }}
-                    radioOptions={[
-                        {
-                            displayName: 'לא',
-                            value: 'no',
-                        },
+                    checkboxOptions={[
                         {
                             displayName: 'דמי למידה',
                             value: 'dmeiLeida',
@@ -279,37 +292,35 @@ export const Form = () => {
                     baseKey="withdrewMoney"
                     displayName="האם משכת כספים מקרן השתלמות / קופת גמל (לפני הזמן המותר בחוק)?"
                     register={{
-                        ...register('withdrewMoney', {
-                            required: true,
-                        }),
+                        ...register('withdrewMoney'),
                     }}
                     checkboxOptions={[
                         {
-                            displayName: 'בשנת 2016',
+                            displayName: 'ב2016',
                             value: '2016',
                         },
                         {
-                            displayName: 'בשנת 2017',
+                            displayName: 'ב2017',
                             value: '2017',
                         },
                         {
-                            displayName: 'בשנת 2018',
+                            displayName: 'ב2018',
                             value: '2018',
                         },
                         {
-                            displayName: 'בשנת 2019',
+                            displayName: 'ב2019',
                             value: '2019',
                         },
                         {
-                            displayName: 'בשנת 2020',
+                            displayName: 'ב2020',
                             value: '2020',
                         },
                         {
-                            displayName: 'בשנת 2021',
+                            displayName: 'ב2021',
                             value: '2021',
                         },
                         {
-                            displayName: 'בשנת 2022',
+                            displayName: 'ב2022',
                             value: '2022',
                         },
                     ]}
@@ -318,18 +329,16 @@ export const Form = () => {
                     baseKey="depositedMoney"
                     displayName="האם משכת כספים מקרן השתלמות/קופת גמל (לפני הזמן המותר בחוק)?"
                     register={{
-                        ...register('depositedMoney', {
-                            required: true,
-                        }),
+                        ...register('depositedMoney'),
                     }}
                     radioOptions={[
                         {
                             displayName: 'לא',
-                            value: 'no',
+                            value: false,
                         },
                         {
                             displayName: 'כן',
-                            value: 'yes',
+                            value: true,
                         },
                     ]}
                 />
@@ -337,37 +346,35 @@ export const Form = () => {
                     baseKey="stockExchangeActivity"
                     displayName="האם הייתה לך פעילות בבורסה שהניבה רווחים/הפסדים במהלך השנים 2016-2021?"
                     register={{
-                        ...register('stockExchangeActivity', {
-                            required: true,
-                        }),
+                        ...register('stockExchangeActivity'),
                     }}
                     checkboxOptions={[
                         {
-                            displayName: 'בשנת 2016',
+                            displayName: 'ב2016',
                             value: '2016',
                         },
                         {
-                            displayName: 'בשנת 2017',
+                            displayName: 'ב2017',
                             value: '2017',
                         },
                         {
-                            displayName: 'בשנת 2018',
+                            displayName: 'ב2018',
                             value: '2018',
                         },
                         {
-                            displayName: 'בשנת 2019',
+                            displayName: 'ב2019',
                             value: '2019',
                         },
                         {
-                            displayName: 'בשנת 2020',
+                            displayName: 'ב2020',
                             value: '2020',
                         },
                         {
-                            displayName: 'בשנת 2021',
+                            displayName: 'ב2021',
                             value: '2021',
                         },
                         {
-                            displayName: 'בשנת 2022',
+                            displayName: 'ב2022',
                             value: '2022',
                         },
                     ]}
@@ -376,34 +383,31 @@ export const Form = () => {
                     baseKey="mashkanta"
                     displayName="האם בוצעו תשלומים למשכנתא במהלך השנים?"
                     register={{
-                        ...register('mashkanta', {
-                            required: true,
-                            validate: (value) => value !== defaultSelectKey,
-                        }),
+                        ...register('mashkanta'),
                     }}
                     checkboxOptions={[
                         {
-                            displayName: 'בשנת 2016',
+                            displayName: 'ב2016',
                             value: '2016',
                         },
                         {
-                            displayName: 'בשנת 2017',
+                            displayName: 'ב2017',
                             value: '2017',
                         },
                         {
-                            displayName: 'בשנת 2018',
+                            displayName: 'ב2018',
                             value: '2018',
                         },
                         {
-                            displayName: 'בשנת 2019',
+                            displayName: 'ב2019',
                             value: '2019',
                         },
                         {
-                            displayName: 'בשנת 2020',
+                            displayName: 'ב2020',
                             value: '2020',
                         },
                         {
-                            displayName: 'בשנת 2021',
+                            displayName: 'ב2021',
                             value: '2021',
                         },
                     ]}
@@ -412,66 +416,66 @@ export const Form = () => {
                     key="disabledFamily"
                     displayName="האם קיים קרוב משפחה נטול יכולת (פיגור שכלי / עיוור / אוטיזם / לקוי למידה / חירש)?"
                     register={{
-                        ...register('disabledFamily', { required: true }),
+                        ...register('disabledFamily'),
                     }}
-                    fieldError={errors.disabledFamily}
                     variant="long"
                 />
                 <Radio
                     baseKey="familyHospitalization"
                     displayName="האם אתה משלם כספים עבור אשפוז הורה/בן זוג במוסד שיקומי?"
                     register={{
-                        ...register('familyHospitalization', {
-                            required: true,
-                        }),
+                        ...register('familyHospitalization'),
                     }}
                     radioOptions={[
                         {
                             displayName: 'לא',
-                            value: 'no',
+                            value: false,
                         },
                         {
                             displayName: 'כן',
-                            value: 'yes',
+                            value: true,
                         },
                     ]}
                 />
-                <TextField
-                    key="donations"
+                <Radio
+                    baseKey="donations"
                     displayName="האם ביצעת תרומות במהלך השנים 2016-2021 בסכום העולה על 200₪ ?"
                     register={{
-                        ...register('donations', { required: true }),
+                        ...register('donations'),
                     }}
-                    fieldError={errors.donations}
-                    variant="long"
+                    radioOptions={[
+                        {
+                            displayName: 'לא',
+                            value: false,
+                        },
+                        {
+                            displayName: 'כן',
+                            value: true,
+                        },
+                    ]}
                 />
                 <Radio
                     baseKey="degreeEligibility"
                     displayName="האם קיימת זכאות לתואר ראשון / שני?"
                     register={{
-                        ...register('degreeEligibility', {
-                            required: true,
-                        }),
+                        ...register('degreeEligibility'),
                     }}
                     radioOptions={[
                         {
                             displayName: 'לא',
-                            value: 'no',
+                            value: false,
                         },
                         {
                             displayName: 'כן',
-                            value: 'yes',
+                            value: true,
                         },
                     ]}
                 />
                 <DateField
                     key="dischargeDateFromMilitary"
                     displayName="אנא ציין את תאריך השחרור שלך משירות בצהל (תום שירות סדיר)"
-                    register={{
-                        ...register('dischargeDateFromMilitary', { required: true }),
-                    }}
-                    fieldError={errors.fullName}
-                    control={control}
+                    fieldValue="dischargeDateFromMilitary"
+                    setValue={setValue}
                 />
                 <TextArea
                     key="childrenInfo"

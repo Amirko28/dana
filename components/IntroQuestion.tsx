@@ -16,7 +16,7 @@ export const IntroQuestion = () => (
                 lg:h-3/4
                 `}
             >
-                <div className="flex h-full w-full flex-col justify-center space-y-14 rounded-lg border-4 border-pink-400 shadow-lg">
+                <div className="flex h-full w-full flex-col justify-center space-y-14 rounded-lg border-2 border-blue-400 shadow-lg">
                     <p className="self-center text-8xl">חושבים שמגיע לכם החזר מס?</p>
                     <p className="self-center text-5xl ">לחצו כאן לבדיקה ללא עלות</p>
                 </div>
