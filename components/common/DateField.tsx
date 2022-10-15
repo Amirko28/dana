@@ -13,7 +13,7 @@ import { NavigationLabel } from '../calendar/NavigationLabel';
 interface Props {
     displayName: string;
     fieldValue: keyof RegisterPayload;
-    setValue: UseFormSetValue<any>;
+    setValue: UseFormSetValue<RegisterPayload>;
 }
 
 export const DateField = ({ displayName, fieldValue, setValue }: Props) => {
