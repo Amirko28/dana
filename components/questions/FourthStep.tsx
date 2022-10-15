@@ -1,8 +1,5 @@
 import { UseFormRegister, FieldErrorsImpl, UseFormSetValue } from 'react-hook-form';
-import { DateField } from '../common/DateField';
-import { Radio } from '../common/Radio';
-import { TextArea } from '../common/TextArea';
-import { TextField } from '../common/TextField';
+import { DateField, Radio, TextArea, TextField } from '../common/form';
 import { RegisterPayload } from '../Form';
 
 interface Props {

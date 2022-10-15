@@ -2,13 +2,15 @@ import type { UseFormSetValue } from 'react-hook-form';
 import Calendar from 'react-calendar';
 import { useEffect, useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
-import { labelClassName } from '../../styles/tailwind/textLabel';
-import { RegisterPayload } from '../Form';
-import { NextLabel } from '../calendar/NextLabel';
-import { DoubleNextLabel } from '../calendar/DoubleNextLabel';
-import { PreviousLabel } from '../calendar/PreviousLabel';
-import { DoublePreviousLabel } from '../calendar/DoublePreviousLabel';
-import { NavigationLabel } from '../calendar/NavigationLabel';
+import { labelClassName } from '../../../styles/tailwind/textLabel';
+import { RegisterPayload } from '../../Form';
+import {
+    NavigationLabel,
+    DoublePreviousLabel,
+    PreviousLabel,
+    DoubleNextLabel,
+    NextLabel,
+} from '../calendar';
 
 interface Props {
     displayName: string;

@@ -1,15 +1,10 @@
+import { useEffect } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import { SubmitButton } from './SubmitButton';
-import { TextField } from './common/TextField';
+import { SubmitButton } from './common/form';
 import { Loading } from './Loading';
 import { labelClassName } from '../styles/tailwind/textLabel';
-import { Checkbox } from './common/Checkbox';
-import { DateField } from './common/DateField';
-import { TextArea } from './common/TextArea';
-import { Radio } from './common/Radio';
-import { useEffect } from 'react';
 import { PersonalInfo } from './questions/PersonalInfo';
 import { FirstStep } from './questions/FirstStep';
 import { SecondStep } from './questions/SecondStep';

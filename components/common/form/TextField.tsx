@@ -1,5 +1,5 @@
 import type { UseFormRegisterReturn, FieldError } from 'react-hook-form';
-import { labelClassName } from '../../styles/tailwind/textLabel';
+import { labelClassName } from '../../../styles/tailwind/textLabel';
 import { ErrorMessage } from './ErrorMessage';
 
 interface Props {

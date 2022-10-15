@@ -1,5 +1,5 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { labelClassName } from '../../styles/tailwind/textLabel';
+import { labelClassName } from '../../../styles/tailwind/textLabel';
 
 interface Props {
     baseKey: string;

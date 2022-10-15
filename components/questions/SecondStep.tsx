@@ -1,6 +1,5 @@
 import { UseFormRegister, FieldErrorsImpl } from 'react-hook-form';
-import { Checkbox } from '../common/Checkbox';
-import { Radio } from '../common/Radio';
+import { Checkbox, Radio } from '../common/form';
 import { RegisterPayload } from '../Form';
 
 interface Props {

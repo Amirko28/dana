@@ -1,5 +1,5 @@
 import { UseFormRegister, FieldErrorsImpl } from 'react-hook-form';
-import { TextField } from '../common/TextField';
+import { TextField } from '../common/form';
 import { RegisterPayload } from '../Form';
 
 interface Props {
