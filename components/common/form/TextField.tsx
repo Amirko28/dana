@@ -10,7 +10,7 @@ interface Props {
 
 export const TextField = ({ displayName, register, fieldError }: Props) => {
     return (
-        <div className={`${labelClassName} relative z-0 h-20 w-full -space-y-2 lg:w-72`}>
+        <div className={`${labelClassName} relative z-0 h-20 w-40 -space-y-2 lg:w-72`}>
             <input
                 type="text"
                 id={displayName}
