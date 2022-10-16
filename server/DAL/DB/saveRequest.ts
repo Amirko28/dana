@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-import { RequestType } from '../../model/Request';
+import { RequestType } from '../../model/request';
 
 const prisma = new PrismaClient();
 

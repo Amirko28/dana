@@ -2,7 +2,7 @@ import { Redis } from '@upstash/redis';
 import { Ratelimit } from '@upstash/ratelimit';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { registerRequest } from '../../server/BL';
-import { requestSchema } from '../../server/model/Request';
+import { requestSchema } from '../../server/model/request';
 
 const redis = new Redis({
     url: process.env.UPSTASH_REDIS_REST_URL || '',

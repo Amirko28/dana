@@ -1,10 +1,10 @@
 import { UseFormRegister, FieldErrorsImpl } from 'react-hook-form';
+import { RegisterRequest } from '../../models/request';
 import { TextField } from '../common/form';
-import { RegisterPayload } from '../Form';
 
 interface Props {
-    register: UseFormRegister<RegisterPayload>;
-    errors: FieldErrorsImpl<RegisterPayload>;
+    register: UseFormRegister<RegisterRequest>;
+    errors: FieldErrorsImpl<RegisterRequest>;
 }
 
 export const PersonalInfo = ({ register, errors }: Props) => {

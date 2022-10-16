@@ -1,11 +1,11 @@
 import { UseFormRegister, FieldErrorsImpl, UseFormSetValue } from 'react-hook-form';
-import { DateField, Radio, TextArea, TextField } from '../common/form';
-import { RegisterPayload } from '../Form';
+import { RegisterRequest } from '../../models/request';
+import { DateField, Radio, TextArea } from '../common/form';
 
 interface Props {
-    register: UseFormRegister<RegisterPayload>;
-    errors: FieldErrorsImpl<RegisterPayload>;
-    setValue: UseFormSetValue<RegisterPayload>;
+    register: UseFormRegister<RegisterRequest>;
+    errors: FieldErrorsImpl<RegisterRequest>;
+    setValue: UseFormSetValue<RegisterRequest>;
 }
 
 export const FourthStep = ({ register, errors, setValue }: Props) => {
@@ -20,7 +20,7 @@ export const FourthStep = ({ register, errors, setValue }: Props) => {
             />
             <Radio
                 baseKey="familyHospitalization"
-                displayName="האם אתה משלם כספים עבור אשפוז הורה/בן זוג במוסד שיקומי?"
+                displayName="האם אתה משלם כספים עבור אשפוז הורה / בן זוג במוסד שיקומי?"
                 register={{
                     ...register('familyHospitalization'),
                 }}

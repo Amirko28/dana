@@ -3,7 +3,6 @@ import Calendar from 'react-calendar';
 import { useEffect, useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { labelClassName } from '../../../styles/tailwind/textLabel';
-import { RegisterPayload } from '../../Form';
 import {
     NavigationLabel,
     DoublePreviousLabel,
@@ -11,11 +10,12 @@ import {
     DoubleNextLabel,
     NextLabel,
 } from '../calendar';
+import { RegisterRequest } from '../../../models/request';
 
 interface Props {
     displayName: string;
-    fieldValue: keyof RegisterPayload;
-    setValue: UseFormSetValue<RegisterPayload>;
+    fieldValue: keyof RegisterRequest;
+    setValue: UseFormSetValue<RegisterRequest>;
 }
 
 export const DateField = ({ displayName, fieldValue, setValue }: Props) => {
@@ -55,6 +55,7 @@ export const DateField = ({ displayName, fieldValue, setValue }: Props) => {
                     />
                 )}
                 locale={'he'}
+                defaultValue={selectedDate}
                 calendarType={'Hebrew'}
                 onChange={setSelectedDate}
                 value={selectedDate}

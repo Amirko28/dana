@@ -9,39 +9,21 @@ import { FirstStep } from './questions/FirstStep';
 import { SecondStep } from './questions/SecondStep';
 import { ThirdStep } from './questions/ThirdStep';
 import { FourthStep } from './questions/FourthStep';
-
-export type RegisterPayload = {
-    fullName: string;
-    idNumber: string;
-    taxCheck: string;
-    marriage: string[];
-    parallelJobs: boolean;
-    independent: boolean;
-    cleanedTax: string;
-    compensation: boolean;
-    payedTaxCompensation: string[];
-    gotMoneyFromBituhLeumi: string[];
-    withdrewMoney: string[];
-    depositedMoney: boolean;
-    stockExchangeActivity: string[];
-    mashkanta: string[];
-    disabledFamily: string;
-    familyHospitalization: boolean;
-    donations: boolean;
-    degreeEligibility: boolean;
-    dischargeDateFromMilitary: Date;
-    childrenInfo: string;
-};
+import { RegisterRequest } from '../models/request';
+import { postRequest } from '../services/request';
 
 export const Form = () => {
-    const mutation = useMutation(
-        (registerPayload: RegisterPayload) => {
-            return axios.post('/api/request', registerPayload);
+    const mutation = useMutation(postRequest, {
+        onSuccess: (data, variables, context) => {
+            console.log('SUCC', data, variables, context);
+            reset();
         },
-        {
-            onSuccess: (data, variables, context) => reset(),
-        }
-    );
+        onError: (error, variables, context) =>
+            console.log('ERR', error, variables, context),
+        onSettled: (data, error, variables, context) =>
+            console.log('SETTLED', error, variables, context),
+        onMutate: (variables) => console.log('MUT', variables),
+    });
 
     const {
         register,
@@ -49,11 +31,11 @@ export const Form = () => {
         reset,
         setValue,
         formState: { errors },
-    } = useForm<RegisterPayload>();
+    } = useForm<RegisterRequest>();
 
     return (
         <form
-            className="mt-8 h-full w-full"
+            className="my-8 h-full w-full"
             onSubmit={handleSubmit((data) => {
                 mutation.mutate(data);
             })}
@@ -65,18 +47,18 @@ export const Form = () => {
                 <FourthStep register={register} errors={errors} setValue={setValue} />
                 <PersonalInfo register={register} errors={errors} />
                 <div className="flex w-full flex-col items-center justify-center space-y-12">
-                    <div className="h-full w-60">
-                        <SubmitButton />
-                    </div>
                     {mutation.isLoading ? (
                         <Loading />
                     ) : mutation.isError ? (
-                        <div className={labelClassName}>התרחשה שגיאה...</div>
+                        <div className={labelClassName}>התרחשה שגיאה</div>
                     ) : mutation.isSuccess ? (
                         <div className={labelClassName}>פנייה התקבלה!</div>
                     ) : (
                         <div className="h-4 w-4"></div>
                     )}
+                    <div className="h-full w-60">
+                        <SubmitButton />
+                    </div>
                 </div>
             </div>
         </form>

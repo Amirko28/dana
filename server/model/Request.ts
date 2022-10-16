@@ -1,13 +1,17 @@
 import { z } from 'zod';
 
+const dateSchema = z.preprocess((arg) => {
+    if (typeof arg == 'string' || arg instanceof Date) return new Date(arg);
+}, z.date());
+
 export const requestSchema = z.object({
     fullName: z.string().min(1),
     idNumber: z.string().length(9).regex(/^\d+$/),
-    taxCheck: z.string(),
+    taxCheck: z.string().min(1),
     marriage: z.string().array(),
     parallelJobs: z.boolean(),
     independent: z.boolean(),
-    cleanedTax: z.string(),
+    cleanedTax: z.string().min(1),
     compensation: z.boolean(),
     payedTaxCompensation: z.string().array(),
     gotMoneyFromBituhLeumi: z.string().array(),
@@ -19,7 +23,7 @@ export const requestSchema = z.object({
     familyHospitalization: z.boolean(),
     donations: z.boolean(),
     degreeEligibility: z.boolean(),
-    dischargeDateFromMilitary: z.date(),
+    dischargeDateFromMilitary: dateSchema,
     childrenInfo: z.string(),
 });
 

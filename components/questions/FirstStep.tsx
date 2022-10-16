@@ -1,11 +1,11 @@
 import { UseFormRegister, FieldErrorsImpl } from 'react-hook-form';
 import { Checkbox } from '../common/form/Checkbox';
 import { Radio } from '../common/form';
-import { RegisterPayload } from '../Form';
+import { RegisterRequest } from '../../models/request';
 
 interface Props {
-    register: UseFormRegister<RegisterPayload>;
-    errors: FieldErrorsImpl<RegisterPayload>;
+    register: UseFormRegister<RegisterRequest>;
+    errors: FieldErrorsImpl<RegisterRequest>;
 }
 
 export const FirstStep = ({ register, errors }: Props) => {
@@ -36,9 +36,7 @@ export const FirstStep = ({ register, errors }: Props) => {
                 baseKey="marriage"
                 displayName="האם התחתנת (ברבנות) במהלך השנים 2016-2022?"
                 register={{
-                    ...register('marriage', {
-                        required: true,
-                    }),
+                    ...register('marriage'),
                 }}
                 checkboxOptions={[
                     {
