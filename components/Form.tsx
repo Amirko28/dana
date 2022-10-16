@@ -10,6 +10,7 @@ import { FirstStep } from './questions/FirstStep';
 import { SecondStep } from './questions/SecondStep';
 import { ThirdStep } from './questions/ThirdStep';
 import { FourthStep } from './questions/FourthStep';
+import { Stepper } from './common/form/Stepper';
 
 export type RegisterPayload = {
     fullName: string;
@@ -63,17 +64,17 @@ export const Form = () => {
 
     return (
         <form
-            className="mt-8"
+            className="mt-8 h-full w-full"
             onSubmit={handleSubmit((data) => {
                 mutation.mutate(data);
             })}
         >
             <div className="space-y-11">
-                <PersonalInfo register={register} errors={errors} />
                 <FirstStep register={register} errors={errors} />
                 <SecondStep register={register} errors={errors} />
                 <ThirdStep register={register} errors={errors} />
                 <FourthStep register={register} errors={errors} setValue={setValue} />
+                <PersonalInfo register={register} errors={errors} />
                 <div className="flex w-full flex-col items-center justify-center space-y-12">
                     <div className="h-full w-60">
                         <SubmitButton />

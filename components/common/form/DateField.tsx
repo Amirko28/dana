@@ -33,7 +33,7 @@ export const DateField = ({ displayName, fieldValue, setValue }: Props) => {
                 </label>
             </div>
             <Calendar
-                className={`mr-2 rounded-md !bg-zinc-900 text-base font-bold text-gray-300`}
+                className={`mr-0 rounded-md !bg-zinc-900 text-base font-bold text-gray-300 lg:mr-2`}
                 tileClassName={'hover:!bg-black'}
                 nextLabel={
                     <NextLabel className="flex h-full w-full items-center justify-center !bg-zinc-900 text-base hover:!bg-black" />

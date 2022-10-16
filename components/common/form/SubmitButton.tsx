@@ -5,12 +5,11 @@ export const SubmitButton = () => {
         <input
             className={`
                 ${labelClassName}
-                mt-12
                 w-full
                 cursor-pointer
                 rounded
                 border-none
-                bg-blue-400
+                bg-blue-500
                 p-5
                 font-extrabold
                 tracking-widest
@@ -18,12 +17,12 @@ export const SubmitButton = () => {
                 transition
                 duration-150
                 ease-in-out
-                hover:bg-blue-500
+                hover:bg-blue-600
                 hover:shadow-lg 
                 focus:shadow-lg
                 focus:outline-none
                 focus:ring-0
-                active:bg-blue-600
+                active:bg-blue-800
                 active:shadow-lg
                 `}
             value="שלח"

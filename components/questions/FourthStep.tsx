@@ -11,13 +11,12 @@ interface Props {
 export const FourthStep = ({ register, errors, setValue }: Props) => {
     return (
         <>
-            <TextField
+            <TextArea
                 key="disabledFamily"
                 displayName="האם קיים קרוב משפחה נטול יכולת (פיגור שכלי / עיוור / אוטיזם / לקוי למידה / חירש)?"
                 register={{
                     ...register('disabledFamily'),
                 }}
-                variant="long"
             />
             <Radio
                 baseKey="familyHospitalization"

@@ -11,5 +11,5 @@ module.exports = {
             body: ['Open Sans', 'sans-serif'],
         },
     },
-    plugins: [],
+    plugins: [require('daisyui')],
 };

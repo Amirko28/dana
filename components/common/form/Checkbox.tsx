@@ -15,7 +15,7 @@ interface CheckboxOption {
 
 export const Checkbox = ({ baseKey, displayName, register, checkboxOptions }: Props) => {
     const Options = () => (
-        <div className="flex flex-row">
+        <div className="flex flex-row  flex-wrap">
             {checkboxOptions.map((option) => (
                 <div
                     className="mb-4 ml-6 flex items-center"
@@ -30,7 +30,7 @@ export const Checkbox = ({ baseKey, displayName, register, checkboxOptions }: Pr
                     />
                     <label
                         htmlFor={`${baseKey}-${option.value}`}
-                        className="mr-2 text-2xl font-bold text-gray-900 dark:text-gray-300"
+                        className="mr-2 text-base font-bold text-gray-900 dark:text-gray-300 lg:text-2xl"
                     >
                         {option.displayName}
                     </label>
