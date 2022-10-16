@@ -18,7 +18,7 @@ export const SecondStep = ({ register, errors }: Props) => {
                 }}
                 radioOptions={[
                     {
-                        displayName: 'למעולם לא',
+                        displayName: 'לא',
                         value: 'never',
                     },
                     {

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
@@ -15,17 +14,17 @@ export type RegisterPayload = {
     fullName: string;
     idNumber: string;
     taxCheck: string;
-    marriage: string;
+    marriage: string[];
     parallelJobs: boolean;
     independent: boolean;
     cleanedTax: string;
     compensation: boolean;
-    payedTaxCompensation: string;
-    gotMoneyFromBituhLeumi: string;
-    withdrewMoney: string;
+    payedTaxCompensation: string[];
+    gotMoneyFromBituhLeumi: string[];
+    withdrewMoney: string[];
     depositedMoney: boolean;
-    stockExchangeActivity: string;
-    mashkanta: string;
+    stockExchangeActivity: string[];
+    mashkanta: string[];
     disabledFamily: string;
     familyHospitalization: boolean;
     donations: boolean;
@@ -45,21 +44,12 @@ export const Form = () => {
     );
 
     const {
-        watch,
         register,
         handleSubmit,
         reset,
         setValue,
         formState: { errors },
     } = useForm<RegisterPayload>();
-
-    useEffect(() => {
-        const subscription = watch((value, { name, type }) =>
-            console.log(value, name, type)
-        );
-
-        return () => subscription.unsubscribe();
-    });
 
     return (
         <form

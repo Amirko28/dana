@@ -49,7 +49,7 @@ export const ThirdStep = ({ register, errors }: Props) => {
             />
             <Radio
                 baseKey="depositedMoney"
-                displayName="האם משכת כספים מקרן השתלמות/קופת גמל (לפני הזמן המותר בחוק)?"
+                displayName="האם הפקדת כספים באופן עצמאי (לא דרך מקום העבודה) לקופת גמל / קרן פנסיה?"
                 register={{
                     ...register('depositedMoney'),
                 }}

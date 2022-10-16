@@ -37,7 +37,7 @@ export const FourthStep = ({ register, errors, setValue }: Props) => {
             />
             <Radio
                 baseKey="donations"
-                displayName="האם ביצעת תרומות במהלך השנים 2016-2021 בסכום העולה על 200₪ ?"
+                displayName="האם ביצעת תרומות במהלך השנים 2016-2021 בסכום העולה על 200₪?"
                 register={{
                     ...register('donations'),
                 }}

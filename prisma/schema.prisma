@@ -10,9 +10,27 @@ datasource db {
 }
 
 model request {
-    id        Int      @id @default(autoincrement())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    fullName  String   @db.Text
-    idNumber  String   @db.Text
+    id                        Int      @id @default(autoincrement())
+    createdAt                 DateTime @default(now())
+    updatedAt                 DateTime @updatedAt
+    fullName                  String   @db.Text
+    idNumber                  String   @db.Text
+    taxCheck                  String   @db.Text
+    marriage                  String   @db.Text
+    parallelJobs              Boolean
+    independent               Boolean
+    cleanedTax                String   @db.Text
+    compensation              Boolean
+    payedTaxCompensation      String   @db.Text
+    gotMoneyFromBituhLeumi    String   @db.Text
+    withdrewMoney             String   @db.Text
+    depositedMoney            Boolean
+    stockExchangeActivity     String   @db.Text
+    mashkanta                 String   @db.Text
+    disabledFamily            String   @db.Text
+    familyHospitalization     Boolean
+    donations                 Boolean
+    degreeEligibility         Boolean
+    dischargeDateFromMilitary DateTime @db.Date
+    childrenInfo              String   @db.Text
 }
