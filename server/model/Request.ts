@@ -6,7 +6,7 @@ const dateSchema = z.preprocess((arg) => {
 
 export const requestSchema = z.object({
     fullName: z.string().min(1),
-    idNumber: z.string().length(9).regex(/^\d+$/),
+    email: z.string().email(),
     taxCheck: z.string().min(1),
     marriage: z.string().array(),
     parallelJobs: z.boolean(),

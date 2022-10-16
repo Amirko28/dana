@@ -33,7 +33,7 @@ export const sendMail = async (request: RequestType) => {
         <div dir="rtl">
             <p>פנייה חדשה!</p>
             <p>שם: ${request.fullName}</p>
-            <p>ת.ז: ${request.idNumber}</p>
+            <p>אימייל: ${request.email}</p>
             <br/>
             <p>האם ביצעת בדיקת החזר מס עבור השנים 2016-2021? ${
                 request.taxCheck === 'no'

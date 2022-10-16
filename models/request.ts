@@ -1,6 +1,6 @@
 export type RegisterRequest = {
     fullName: string;
-    idNumber: string;
+    email: string;
     taxCheck: string;
     marriage: string[] | false;
     parallelJobs: string;

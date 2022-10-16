@@ -28,7 +28,7 @@ export const TextField = ({ displayName, register, fieldError }: Props) => {
                 {fieldError?.type === 'required' ? (
                     <ErrorMessage message="שדה חובה" />
                 ) : fieldError?.type === 'validate' ? (
-                    <ErrorMessage message="מספר ת.ז לא תקין" />
+                    <ErrorMessage message="לא תקין" />
                 ) : (
                     <></>
                 )}

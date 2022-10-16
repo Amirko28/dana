@@ -19,15 +19,18 @@ export const PersonalInfo = ({ register, errors }: Props) => {
                 fieldError={errors.fullName}
             />
             <TextField
-                key="id"
-                displayName="מספר ת.ז"
+                key="email"
+                displayName="אימייל"
                 register={{
-                    ...register('idNumber', {
+                    ...register('email', {
                         required: true,
-                        validate: (value) => value.toString().length === 9 && +value > 0,
+                        validate: (value) =>
+                            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+                                value.toString()
+                            ),
                     }),
                 }}
-                fieldError={errors.idNumber}
+                fieldError={errors.email}
             />
         </>
     );

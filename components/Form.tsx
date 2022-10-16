@@ -1,8 +1,6 @@
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { SubmitButton } from './common/form';
-import { Loading } from './Loading';
 import { labelClassName } from '../styles/tailwind/textLabel';
 import { PersonalInfo } from './questions/PersonalInfo';
 import { FirstStep } from './questions/FirstStep';

@@ -1,6 +1,5 @@
 export interface MappedRequestPayload {
     fullName: string;
-    idNumber: string;
     taxCheck: string;
     marriage: string[];
     parallelJobs: boolean;

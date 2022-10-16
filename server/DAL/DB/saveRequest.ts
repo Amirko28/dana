@@ -8,7 +8,7 @@ export const saveRequest = async (request: RequestType) => {
     await prisma.request.create({
         data: {
             fullName: request.fullName,
-            idNumber: request.idNumber,
+            email: request.email,
             taxCheck: request.taxCheck,
             marriage: request.marriage.toString(),
             parallelJobs: request.parallelJobs,
