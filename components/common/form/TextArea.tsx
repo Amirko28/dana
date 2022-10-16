@@ -11,7 +11,7 @@ export const TextArea = ({ displayName, register }: Props) => {
         <div className={`${labelClassName} space-y-4`}>
             <label
                 htmlFor="message"
-                className="mb-2 block text-gray-300 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+                className="mb-2 block text-gray-300 peer-focus:text-blue-500"
             >
                 {displayName}
             </label>

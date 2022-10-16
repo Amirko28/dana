@@ -31,7 +31,7 @@ export const Radio = ({ baseKey, displayName, register, radioOptions }: Props) =
                     />
                     <label
                         htmlFor={`${baseKey}-${option.value}`}
-                        className="mr-2 text-base font-bold text-gray-900 dark:text-gray-300 lg:text-2xl"
+                        className="mr-2 text-base font-bold text-gray-300 lg:text-2xl"
                     >
                         {option.displayName}
                     </label>
