@@ -10,7 +10,6 @@ import { FirstStep } from './questions/FirstStep';
 import { SecondStep } from './questions/SecondStep';
 import { ThirdStep } from './questions/ThirdStep';
 import { FourthStep } from './questions/FourthStep';
-import { Stepper } from './common/form/Stepper';
 
 export type RegisterPayload = {
     fullName: string;
