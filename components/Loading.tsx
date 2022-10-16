@@ -1,5 +1,5 @@
 export const Loading = () => (
-    <div role="status" dir="rtl">
+    <div className="flex items-center justify-center" role="status">
         <svg
             aria-hidden="true"
             className="mr-2 h-8 w-8 animate-spin fill-blue-500 text-gray-200 dark:text-gray-300"

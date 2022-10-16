@@ -1,8 +1,14 @@
 import { labelClassName } from '../../../styles/tailwind/textLabel';
+import { Loading } from '../../Loading';
 
-export const SubmitButton = () => {
+interface Props {
+    isLoading: boolean;
+    isSuccess: boolean;
+}
+
+export const SubmitButton = ({ isLoading, isSuccess }: Props) => {
     return (
-        <input
+        <button
             className={`
                 ${labelClassName}
                 w-full
@@ -25,8 +31,15 @@ export const SubmitButton = () => {
                 active:bg-blue-800
                 active:shadow-lg
                 `}
-            value="שלח"
             type="submit"
-        />
+        >
+            {isLoading ? (
+                <Loading />
+            ) : isSuccess ? (
+                <div className={labelClassName}>פנייה התקבלה!</div>
+            ) : (
+                'שלח'
+            )}
+        </button>
     );
 };

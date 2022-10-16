@@ -14,7 +14,7 @@ export const TextField = ({ displayName, register, fieldError }: Props) => {
             <input
                 type="text"
                 id={displayName}
-                className="peer block w-full appearance-none border-0 border-b-2 border-gray-600 bg-transparent py-2.5 px-0 text-base text-white focus:border-blue-500 focus:outline-none focus:ring-0 lg:text-lg"
+                className="peer mr-1 block w-full appearance-none border-0 border-b-2 border-gray-600 bg-transparent py-2.5 px-0 text-base text-white focus:border-blue-500 focus:outline-none focus:ring-0 lg:text-lg"
                 placeholder=" "
                 {...register}
             />
@@ -24,7 +24,7 @@ export const TextField = ({ displayName, register, fieldError }: Props) => {
             >
                 {displayName}
             </label>
-            <div>
+            <div className="mr-1">
                 {fieldError?.type === 'required' ? (
                     <ErrorMessage message="שדה חובה" />
                 ) : fieldError?.type === 'validate' ? (

@@ -13,16 +13,8 @@ import { RegisterRequest } from '../models/request';
 import { postRequest } from '../services/request';
 
 export const Form = () => {
-    const mutation = useMutation(postRequest, {
-        onSuccess: (data, variables, context) => {
-            console.log('SUCC', data, variables, context);
-            reset();
-        },
-        onError: (error, variables, context) =>
-            console.log('ERR', error, variables, context),
-        onSettled: (data, error, variables, context) =>
-            console.log('SETTLED', error, variables, context),
-        onMutate: (variables) => console.log('MUT', variables),
+    const { mutate, isLoading, isError, isSuccess } = useMutation(postRequest, {
+        onSuccess: (data, variables, context) => reset(),
     });
 
     const {
@@ -37,7 +29,7 @@ export const Form = () => {
         <form
             className="my-8 h-full w-full"
             onSubmit={handleSubmit((data) => {
-                mutation.mutate(data);
+                mutate(data);
             })}
         >
             <div className="space-y-11">
@@ -47,17 +39,9 @@ export const Form = () => {
                 <FourthStep register={register} errors={errors} setValue={setValue} />
                 <PersonalInfo register={register} errors={errors} />
                 <div className="flex w-full flex-col items-center justify-center space-y-12">
-                    {mutation.isLoading ? (
-                        <Loading />
-                    ) : mutation.isError ? (
-                        <div className={labelClassName}>התרחשה שגיאה</div>
-                    ) : mutation.isSuccess ? (
-                        <div className={labelClassName}>פנייה התקבלה!</div>
-                    ) : (
-                        <div className="h-4 w-4"></div>
-                    )}
+                    {isError ? <div className={labelClassName}>התרחשה שגיאה</div> : <></>}
                     <div className="h-full w-60">
-                        <SubmitButton />
+                        <SubmitButton isLoading={isLoading} isSuccess={isSuccess} />
                     </div>
                 </div>
             </div>
