@@ -9,10 +9,16 @@ import { ThirdStep } from './questions/ThirdStep';
 import { FourthStep } from './questions/FourthStep';
 import { RegisterRequest } from '../models/request';
 import { postRequest } from '../services/request';
+import { useRouter } from 'next/router';
 
 export const Form = () => {
+    const { push } = useRouter();
+
     const { mutate, isLoading, isError, isSuccess } = useMutation(postRequest, {
-        onSuccess: (data, variables, context) => reset(),
+        onSuccess: (data, variables, context) => {
+            reset();
+            push('/finish');
+        },
     });
 
     const {
@@ -39,7 +45,7 @@ export const Form = () => {
                 <div className="flex w-full flex-col items-center justify-center space-y-12">
                     {isError ? <div className={labelClassName}>התרחשה שגיאה</div> : <></>}
                     <div className="h-full w-60">
-                        <SubmitButton isLoading={isLoading} isSuccess={isSuccess} />
+                        <SubmitButton isLoading={isLoading} />
                     </div>
                 </div>
             </div>

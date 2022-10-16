@@ -2,16 +2,15 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Body } from '../components/Body';
 
-const Home: NextPage = () => {
+const Form: NextPage = () => {
     return (
         <>
             <Head>
                 <title>דנה כתר</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
             <Body />
         </>
     );
 };
 
-export default Home;
+export default Form;

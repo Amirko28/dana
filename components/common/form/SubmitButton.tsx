@@ -3,10 +3,9 @@ import { Loading } from '../../Loading';
 
 interface Props {
     isLoading: boolean;
-    isSuccess: boolean;
 }
 
-export const SubmitButton = ({ isLoading, isSuccess }: Props) => {
+export const SubmitButton = ({ isLoading }: Props) => {
     return (
         <button
             className={`
@@ -33,13 +32,7 @@ export const SubmitButton = ({ isLoading, isSuccess }: Props) => {
                 `}
             type="submit"
         >
-            {isLoading ? (
-                <Loading />
-            ) : isSuccess ? (
-                <div className={labelClassName}>פנייה התקבלה!</div>
-            ) : (
-                'שלח'
-            )}
+            {isLoading ? <Loading /> : 'שלח'}
         </button>
     );
 };
