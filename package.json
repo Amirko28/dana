@@ -22,6 +22,9 @@
         "react-calendar": "^3.9.0",
         "react-dom": "18.2.0",
         "react-hook-form": "^7.36.1",
+        "react-responsive": "^9.0.0",
+        "react-slick": "^0.29.0",
+        "slick-carousel": "^1.8.1",
         "zod": "^3.19.1"
     },
     "devDependencies": {
@@ -30,6 +33,9 @@
         "@types/react": "18.0.21",
         "@types/react-calendar": "^3.5.3",
         "@types/react-dom": "18.0.6",
+        "@types/react-responsive": "^8.0.5",
+        "@types/react-slick": "^0.23.10",
+        "@types/slick-carousel": "^1.6.37",
         "autoprefixer": "^10.4.12",
         "eslint": "8.24.0",
         "eslint-config-next": "12.3.1",
