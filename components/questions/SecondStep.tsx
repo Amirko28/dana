@@ -97,6 +97,10 @@ export const SecondStep = ({ register, errors }: Props) => {
                 }}
                 checkboxOptions={[
                     {
+                        displayName: 'לא',
+                        value: 'no',
+                    },
+                    {
                         displayName: 'דמי למידה',
                         value: 'dmeiLeida',
                     },
