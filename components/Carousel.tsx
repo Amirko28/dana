@@ -23,11 +23,11 @@ const Carousel = () => {
     const { isLg } = useBreakpoint('lg');
 
     return (
-        <div className="mb-4 h-full w-full lg:mb-10">
+        <div className="mx-2 mb-4 h-full w-full lg:mb-10">
             <Slider
                 infinite={true}
                 adaptiveHeight={true}
-                autoplay={true}
+                autoplay={false}
                 autoplaySpeed={4000}
                 dots={false}
                 speed={2000}
