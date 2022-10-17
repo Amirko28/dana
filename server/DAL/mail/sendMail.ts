@@ -16,7 +16,8 @@ const formatDischargeDate = (date: Date) => format(date, 'dd/MM/yyyy');
 
 const emptyValueSchema = z.string().length(0).or(z.string().array().length(0));
 
-const handleEmptyValue = (value: string | string[] | undefined, emptyValue = 'לא') => {
+const handleEmptyValue = (value: string | string[] | undefined, emptyValue = '-') => {
+    if (value === undefined) return emptyValue;
     const parseResult = emptyValueSchema.safeParse(value);
     if (!parseResult.success) {
         return value;
