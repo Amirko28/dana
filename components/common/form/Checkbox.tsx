@@ -87,7 +87,7 @@ export const Checkbox = ({
                 <label className={labelClassName}>{displayName}</label>{' '}
             </div>
             <Options />
-            {watch && commentFieldId ? (
+            {watch && commentFieldId && registerComment ? (
                 <OptionalField
                     watchedFieldId={baseKey}
                     fieldId={commentFieldId}
