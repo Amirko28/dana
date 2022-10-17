@@ -1,5 +1,5 @@
 import type { UseFormSetValue } from 'react-hook-form';
-import Calendar from 'react-calendar';
+import Calendar, { YearView } from 'react-calendar';
 import { useEffect, useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import { labelClassName } from '../../../styles/tailwind/textLabel';
@@ -33,6 +33,7 @@ export const DateField = ({ displayName, fieldValue, setValue }: Props) => {
                 </label>
             </div>
             <Calendar
+                view="decade"
                 className={`mr-0 rounded-md !bg-zinc-900 text-base font-bold text-gray-300 lg:mr-2`}
                 tileClassName={'hover:!bg-black'}
                 nextLabel={

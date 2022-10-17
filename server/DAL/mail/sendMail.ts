@@ -91,7 +91,7 @@ export const sendMail = async (request: RequestType) => {
             <p>האם קיימת זכאות לתואר ראשון / שני? ${
                 request.degreeEligibility ? 'כן' : 'לא'
             }</p>
-            <p>אנא ציין את תאריך השחרור שלך משירות בצהל (תום שירות סדיר) ${formatDischargeDate(
+            <p>אנא ציין את שנת השחרור שלך משירות בצהל (תום שירות סדיר) ${formatDischargeDate(
                 request.dischargeDateFromMilitary
             )}</p>
             <p>אנא ציין את שמות, ת.ז ותאריכי הלידה של ילדיך ${handleEmptyValue(

@@ -27,7 +27,7 @@ const Carousel = () => {
             <Slider
                 infinite={true}
                 adaptiveHeight={true}
-                autoplay={false}
+                autoplay={true}
                 autoplaySpeed={4000}
                 dots={false}
                 speed={2000}

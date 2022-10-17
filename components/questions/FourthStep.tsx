@@ -71,7 +71,7 @@ export const FourthStep = ({ register, errors, setValue }: Props) => {
             />
             <DateField
                 key="dischargeDateFromMilitary"
-                displayName="אנא ציין את תאריך השחרור שלך משירות בצהל (תום שירות סדיר)"
+                displayName="אנא ציין את שנת השחרור שלך משירות בצהל (תום שירות סדיר) "
                 fieldValue="dischargeDateFromMilitary"
                 setValue={setValue}
             />
