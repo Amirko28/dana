@@ -1,5 +1,7 @@
-import { Carousel } from './Carousel';
+import dynamic from 'next/dynamic';
 import { StartButton } from './StartButton';
+
+const Carousel = dynamic(() => import('./Carousel'), { ssr: false });
 
 export const IntroQuestion = () => {
     return (

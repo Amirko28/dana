@@ -1,6 +1,5 @@
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 import { useBreakpoint } from '../styles/tailwind/isBreakpoint';
 
 interface ItemProps {
@@ -20,7 +19,7 @@ const Item = ({ title, content }: ItemProps) => (
     </div>
 );
 
-export const Carousel = () => {
+const Carousel = () => {
     const { isLg } = useBreakpoint('lg');
 
     return (
@@ -102,3 +101,5 @@ export const Carousel = () => {
         </div>
     );
 };
+
+export default Carousel;
