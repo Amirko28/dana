@@ -9,6 +9,7 @@ export const requestSchema = z.object({
     email: z.string().email(),
     taxCheck: z.string().min(1),
     marriage: z.string().array(),
+    marriageComment: z.string().optional(),
     parallelJobs: z.boolean(),
     independent: z.boolean(),
     cleanedTax: z.string().min(1),

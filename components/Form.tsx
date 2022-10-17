@@ -26,6 +26,7 @@ export const Form = () => {
         handleSubmit,
         reset,
         setValue,
+        watch,
         formState: { errors },
     } = useForm<RegisterRequest>();
 
@@ -37,7 +38,7 @@ export const Form = () => {
             })}
         >
             <div className="space-y-11">
-                <FirstStep register={register} errors={errors} />
+                <FirstStep register={register} errors={errors} watch={watch} />
                 <SecondStep register={register} errors={errors} />
                 <ThirdStep register={register} errors={errors} />
                 <FourthStep register={register} errors={errors} setValue={setValue} />

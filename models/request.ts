@@ -3,6 +3,7 @@ export type RegisterRequest = {
     email: string;
     taxCheck: string;
     marriage: string[] | false;
+    marriageComment?: string;
     parallelJobs: string;
     independent: string;
     cleanedTax: string;

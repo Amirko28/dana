@@ -2,6 +2,7 @@ export interface MappedRequestPayload {
     fullName: string;
     taxCheck: string;
     marriage: string[];
+    marriageComment?: string;
     parallelJobs: boolean;
     independent: boolean;
     cleanedTax: string;

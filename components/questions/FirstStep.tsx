@@ -1,4 +1,4 @@
-import { UseFormRegister, FieldErrorsImpl } from 'react-hook-form';
+import { UseFormRegister, FieldErrorsImpl, UseFormWatch } from 'react-hook-form';
 import { Checkbox } from '../common/form/Checkbox';
 import { Radio } from '../common/form';
 import { RegisterRequest } from '../../models/request';
@@ -6,9 +6,10 @@ import { RegisterRequest } from '../../models/request';
 interface Props {
     register: UseFormRegister<RegisterRequest>;
     errors: FieldErrorsImpl<RegisterRequest>;
+    watch: UseFormWatch<RegisterRequest>;
 }
 
-export const FirstStep = ({ register, errors }: Props) => {
+export const FirstStep = ({ register, errors, watch }: Props) => {
     return (
         <>
             <Radio
@@ -40,38 +41,28 @@ export const FirstStep = ({ register, errors }: Props) => {
                 }}
                 checkboxOptions={[
                     {
-                        displayName: 'ב2016',
-                        value: '2016',
+                        displayName: 'כן',
+                        value: 'yes',
                     },
                     {
-                        displayName: 'ב2017',
-                        value: '2017',
-                    },
-                    {
-                        displayName: 'ב2018',
-                        value: '2018',
-                    },
-                    {
-                        displayName: 'ב2019',
-                        value: '2019',
-                    },
-                    {
-                        displayName: 'ב2020',
-                        value: '2020',
-                    },
-                    {
-                        displayName: 'ב2021',
-                        value: '2021',
-                    },
-                    {
-                        displayName: 'ב2022',
-                        value: '2022',
+                        displayName: 'לא',
+                        value: 'no',
                     },
                     {
                         displayName: 'נשוי אך לא ברבנות',
                         value: 'notRabanut',
                     },
+                    {
+                        displayName: 'אחר',
+                        value: 'other',
+                    },
                 ]}
+                watch={watch}
+                commentFieldId={'marriageComment'}
+                key="marriage"
+                registerComment={{
+                    ...register('marriageComment'),
+                }}
             />
             <Radio
                 baseKey="parallelJobs"

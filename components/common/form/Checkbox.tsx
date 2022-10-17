@@ -1,19 +1,61 @@
-import { UseFormRegisterReturn } from 'react-hook-form';
+import { useEffect } from 'react';
+import { UseFormRegisterReturn, UseFormWatch } from 'react-hook-form';
+import { RegisterRequest } from '../../../models/request';
 import { labelClassName } from '../../../styles/tailwind/textLabel';
+import { TextArea } from './TextArea';
 
 interface Props {
-    baseKey: string;
+    baseKey: keyof RegisterRequest;
     displayName: string;
     register: UseFormRegisterReturn;
+    registerComment?: UseFormRegisterReturn;
+    commentFieldId?: keyof RegisterRequest;
+    watch?: UseFormWatch<RegisterRequest>;
     checkboxOptions: CheckboxOption[];
 }
 
 interface CheckboxOption {
     displayName: string;
     value: string;
+    openTextField?: boolean;
 }
 
-export const Checkbox = ({ baseKey, displayName, register, checkboxOptions }: Props) => {
+interface OptionalFieldProps {
+    watch: UseFormWatch<RegisterRequest>;
+    value: string;
+    watchedFieldId: keyof RegisterRequest;
+    fieldId: keyof RegisterRequest;
+    register: UseFormRegisterReturn;
+}
+
+const OptionalField = ({
+    watch,
+    value,
+    register,
+    fieldId,
+    watchedFieldId,
+}: OptionalFieldProps) => {
+    const watchedValue = watch(watchedFieldId) as string | string[];
+    useEffect(() => {
+        console.log(watchedValue, value);
+    }, [watchedValue, value]);
+    if (
+        (typeof watchedValue === 'string' || Array.isArray(watchedValue)) &&
+        (watchedValue === value || watchedValue.includes(value))
+    )
+        return <TextArea key={fieldId} placeHolder="פרט כאן..." register={register} />;
+    return <></>;
+};
+
+export const Checkbox = ({
+    baseKey,
+    displayName,
+    register,
+    checkboxOptions,
+    commentFieldId,
+    registerComment,
+    watch,
+}: Props) => {
     const Options = () => (
         <div className="flex flex-row  flex-wrap">
             {checkboxOptions.map((option) => (
@@ -45,6 +87,17 @@ export const Checkbox = ({ baseKey, displayName, register, checkboxOptions }: Pr
                 <label className={labelClassName}>{displayName}</label>{' '}
             </div>
             <Options />
+            {watch && commentFieldId ? (
+                <OptionalField
+                    watchedFieldId={baseKey}
+                    fieldId={commentFieldId}
+                    register={registerComment}
+                    value={checkboxOptions[checkboxOptions.length - 1].value}
+                    watch={watch}
+                />
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

@@ -11,6 +11,7 @@ export const saveRequest = async (request: RequestType) => {
             email: request.email,
             taxCheck: request.taxCheck,
             marriage: request.marriage.toString(),
+            marriageComment: request.marriageComment,
             parallelJobs: request.parallelJobs,
             independent: request.independent,
             cleanedTax: request.cleanedTax,

@@ -1,4 +1,4 @@
-import { UseFormRegister, FieldErrorsImpl } from 'react-hook-form';
+import { UseFormRegister, FieldErrorsImpl, UseFormWatch } from 'react-hook-form';
 import { RegisterRequest } from '../../models/request';
 import { Checkbox, Radio } from '../common/form';
 
@@ -55,6 +55,10 @@ export const SecondStep = ({ register, errors }: Props) => {
                     ...register('payedTaxCompensation'),
                 }}
                 checkboxOptions={[
+                    {
+                        displayName: 'לא',
+                        value: 'no',
+                    },
                     {
                         displayName: 'ב2016',
                         value: '2016',

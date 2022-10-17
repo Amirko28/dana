@@ -17,6 +17,7 @@ model request {
   email                     String   @db.Text
   taxCheck                  String   @db.Text
   marriage                  String   @db.Text
+  marriageComment           String?  @db.Text
   parallelJobs              Boolean
   independent               Boolean
   cleanedTax                String   @db.Text

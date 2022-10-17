@@ -18,6 +18,10 @@ export const ThirdStep = ({ register, errors }: Props) => {
                 }}
                 checkboxOptions={[
                     {
+                        displayName: 'לא',
+                        value: 'no',
+                    },
+                    {
                         displayName: 'ב2016',
                         value: '2016',
                     },
@@ -72,6 +76,10 @@ export const ThirdStep = ({ register, errors }: Props) => {
                 }}
                 checkboxOptions={[
                     {
+                        displayName: 'לא',
+                        value: 'no',
+                    },
+                    {
                         displayName: 'ב2016',
                         value: '2016',
                     },
@@ -108,6 +116,10 @@ export const ThirdStep = ({ register, errors }: Props) => {
                     ...register('mashkanta'),
                 }}
                 checkboxOptions={[
+                    {
+                        displayName: 'לא',
+                        value: 'no',
+                    },
                     {
                         displayName: 'ב2016',
                         value: '2016',
