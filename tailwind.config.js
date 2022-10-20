@@ -6,7 +6,14 @@ module.exports = {
         './styles/tailwind/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                background: '#d3deff',
+                primary: '#4d4dff',
+                secondary: '#3655b3',
+                tertiary: '#a6bcff',
+            },
+        },
         fontFamily: {
             body: ['Open Sans', 'sans-serif'],
         },

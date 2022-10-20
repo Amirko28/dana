@@ -7,12 +7,12 @@ export const IntroQuestion = () => {
     return (
         <div
             dir="rtl"
-            className="flex h-full w-full flex-col items-center justify-center space-y-4 bg-zinc-800 py-4 font-body"
+            className="flex h-screen w-full flex-col items-center justify-center space-y-4 bg-background py-4 font-body"
         >
-            <div className="flex h-full w-5/6 flex-col space-y-6 lg:w-11/12">
+            <div className="mt-4 flex h-full w-5/6 flex-col space-y-12 lg:w-11/12">
                 <StartButton />
                 <Carousel />
-                <div className="text-xs font-bold text-gray-300 lg:w-11/12">
+                <div className="text-xs font-bold text-secondary lg:w-11/12">
                     ** הבדיקה מתבצעת ידנית על ידי מומחי מיסוי ממשרד DK ניהול כספים - דנה
                     כתר
                 </div>

@@ -25,7 +25,7 @@ export const Radio = ({ baseKey, displayName, register, radioOptions }: Props) =
                         id={`${baseKey}-${option.value}`}
                         type="radio"
                         value={option.value.toString()}
-                        className="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        className="h-4 w-4 border-gray-600 bg-gray-700 text-blue-600 ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
                         {...register}
                         defaultChecked={index === 0}
                     />
