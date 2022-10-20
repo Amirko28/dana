@@ -25,13 +25,13 @@ export const Radio = ({ baseKey, displayName, register, radioOptions }: Props) =
                         id={`${baseKey}-${option.value}`}
                         type="radio"
                         value={option.value.toString()}
-                        className="h-4 w-4 border-gray-600 bg-gray-700 text-blue-600 ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
+                        className="h-4 w-4 focus:ring-2 focus:ring-secondary"
                         {...register}
                         defaultChecked={index === 0}
                     />
                     <label
                         htmlFor={`${baseKey}-${option.value}`}
-                        className="mr-2 text-base font-bold text-gray-300 lg:text-2xl"
+                        className="mr-2 text-base font-normal text-secondary lg:text-2xl"
                     >
                         {option.displayName}
                     </label>

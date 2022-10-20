@@ -10,6 +10,7 @@ import { FourthStep } from './questions/FourthStep';
 import { RegisterRequest } from '../models/request';
 import { postRequest } from '../services/request';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export const Form = () => {
     const { push } = useRouter();
@@ -30,6 +31,12 @@ export const Form = () => {
         formState: { errors },
     } = useForm<RegisterRequest>();
 
+    const asd = watch('dischargeDateFromMilitary');
+
+    useEffect(() => {
+        console.log(asd);
+    }, [asd]);
+
     return (
         <form
             className="my-8 h-full w-full"
@@ -37,7 +44,7 @@ export const Form = () => {
                 mutate(data);
             })}
         >
-            <div className="space-y-11">
+            <div className="space-y-11 rounded-lg border-2 border-tertiary bg-white p-4 shadow-primary drop-shadow-lg">
                 <FirstStep register={register} errors={errors} watch={watch} />
                 <SecondStep register={register} errors={errors} />
                 <ThirdStep register={register} errors={errors} />

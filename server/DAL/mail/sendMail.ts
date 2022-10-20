@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-const formatDischargeDate = (date: Date) => format(date, 'dd/MM/yyyy');
+const formatDischargeDate = (date: Date) => format(date, 'yyyy');
 
 const emptyValueSchema = z.string().length(0).or(z.string().array().length(0));
 

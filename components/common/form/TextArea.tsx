@@ -13,7 +13,7 @@ export const TextArea = ({ displayName, placeHolder, register }: Props) => {
             {displayName ? (
                 <label
                     htmlFor="message"
-                    className="mb-2 block text-gray-300 peer-focus:text-blue-500"
+                    className="mb-2 block text-secondary peer-focus:text-primary"
                 >
                     {displayName}
                 </label>
@@ -23,7 +23,7 @@ export const TextArea = ({ displayName, placeHolder, register }: Props) => {
             <textarea
                 id="message"
                 rows={4}
-                className="h-full w-full resize-none rounded-lg border border-gray-600 bg-zinc-900 p-2.5 text-base text-white transition ease-in-out placeholder:text-gray-400 focus:border-blue-500 focus:outline-none lg:text-lg"
+                className="h-full w-full resize-none rounded-lg border border-tertiary bg-background p-2.5 text-base font-normal text-secondary transition ease-in-out placeholder:text-secondary focus:border-secondary focus:outline-none lg:text-lg"
                 placeholder={placeHolder ?? 'הקלד כאן...'}
                 {...register}
             ></textarea>

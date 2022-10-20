@@ -8,16 +8,18 @@ interface ItemProps {
 }
 
 const Item = ({ title, content }: ItemProps) => (
-    <div
-        className="my-2 mx-8 flex h-56 w-5/6 flex-col space-y-2 rounded-lg bg-white p-6 drop-shadow-xl lg:my-0 lg:mx-12 lg:space-y-0"
-        style={{ direction: 'rtl' }}
-    >
-        <h5 className="mb-2 h-32 overflow-hidden text-sm font-bold tracking-tight text-primary lg:text-2xl">
-            {title}
-        </h5>
-        <p className="h-full text-sm font-normal text-secondary lg:text-base">
-            {content}
-        </p>
+    <div className="flex items-center justify-center">
+        <div
+            className="my-2 flex h-56 w-5/6 flex-col space-y-2 rounded-lg bg-white p-6 drop-shadow-xl lg:my-0 lg:mx-12 lg:space-y-0"
+            style={{ direction: 'rtl' }}
+        >
+            <h5 className="mb-2 h-32 overflow-hidden text-sm font-bold tracking-tight text-primary lg:text-2xl">
+                {title}
+            </h5>
+            <p className="h-full text-sm font-normal text-secondary lg:text-base">
+                {content}
+            </p>
+        </div>
     </div>
 );
 
@@ -25,7 +27,7 @@ const Carousel = () => {
     const { isLg } = useBreakpoint('lg');
 
     return (
-        <div className="mx-4 h-full w-full lg:mx-2">
+        <div className="h-full w-full">
             <Slider
                 infinite={true}
                 adaptiveHeight={true}

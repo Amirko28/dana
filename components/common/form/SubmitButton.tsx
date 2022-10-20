@@ -1,4 +1,3 @@
-import { labelClassName } from '../../../styles/tailwind/textLabel';
 import { Loading } from '../../Loading';
 
 interface Props {
@@ -8,28 +7,28 @@ interface Props {
 export const SubmitButton = ({ isLoading }: Props) => {
     return (
         <button
-            className={`
-                ${labelClassName}
+            className="
                 w-full
                 cursor-pointer
                 rounded
                 border-none
-                bg-blue-500
+                bg-primary 
                 p-5
+                text-lg
                 font-extrabold
                 tracking-widest
+                text-white
                 shadow-md
                 transition
                 duration-150
                 ease-in-out
-                hover:bg-blue-600
-                hover:shadow-lg 
-                focus:shadow-lg
+                hover:shadow-xl
+                focus:shadow-lg 
                 focus:outline-none
                 focus:ring-0
-                active:bg-blue-800
-                active:shadow-lg
-                `}
+                active:shadow-2xl
+                lg:text-3xl
+                "
             type="submit"
         >
             {isLoading ? <Loading /> : 'שלח'}

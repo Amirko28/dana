@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { UseFormRegisterReturn, UseFormWatch } from 'react-hook-form';
 import { RegisterRequest } from '../../../models/request';
 import { labelClassName } from '../../../styles/tailwind/textLabel';
@@ -36,9 +35,7 @@ const OptionalField = ({
     watchedFieldId,
 }: OptionalFieldProps) => {
     const watchedValue = watch(watchedFieldId) as string | string[];
-    useEffect(() => {
-        console.log(watchedValue, value);
-    }, [watchedValue, value]);
+
     if (
         (typeof watchedValue === 'string' || Array.isArray(watchedValue)) &&
         (watchedValue === value || watchedValue.includes(value))
@@ -67,12 +64,12 @@ export const Checkbox = ({
                         id={`${baseKey}-${option.value}`}
                         type="checkbox"
                         value={option.value}
-                        className="h-4 w-4 border-gray-600 bg-gray-700 text-blue-600 ring-offset-gray-800 focus:ring-2 focus:ring-blue-600 "
+                        className="h-4 w-4 text-secondary focus:ring-2 focus:ring-secondary "
                         {...register}
                     />
                     <label
                         htmlFor={`${baseKey}-${option.value}`}
-                        className="mr-2 text-base font-bold text-gray-300 lg:text-2xl"
+                        className="mr-2 text-base font-normal text-secondary lg:text-2xl"
                     >
                         {option.displayName}
                     </label>

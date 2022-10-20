@@ -1,1 +1,1 @@
-export const linkClassName = 'text-blue-300 underline';
+export const linkClassName = 'text-blue-500 underline';
