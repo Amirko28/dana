@@ -10,13 +10,13 @@ interface ItemProps {
 const Item = ({ title, content }: ItemProps) => (
     <div className="flex items-center justify-center">
         <div
-            className="my-2 flex h-56 w-5/6 flex-col space-y-2 rounded-lg bg-white p-6 drop-shadow-xl lg:my-0 lg:mx-12 lg:space-y-0"
+            className="my-2 flex h-full w-5/6 flex-col items-start justify-center space-y-2 rounded-lg bg-white p-6 drop-shadow-xl lg:my-0 lg:mx-12 lg:space-y-0"
             style={{ direction: 'rtl' }}
         >
-            <h5 className="mb-2 h-32 overflow-hidden text-sm font-bold tracking-tight text-primary lg:text-2xl">
+            <h5 className="mb-2 h-2/12 overflow-hidden text-sm font-bold tracking-tight text-primary lg:text-2xl">
                 {title}
             </h5>
-            <p className="h-full text-sm font-normal text-secondary lg:text-base">
+            <p className="h-8/12 text-sm font-normal text-secondary lg:text-base">
                 {content}
             </p>
         </div>
@@ -27,17 +27,16 @@ const Carousel = () => {
     const { isLg } = useBreakpoint('lg');
 
     return (
-        <div className="h-full w-full">
+        <div className="h-4/12 w-full">
             <Slider
                 infinite={true}
-                adaptiveHeight={true}
+                adaptiveHeight={false}
                 autoplay={true}
                 autoplaySpeed={4000}
                 dots={false}
                 speed={2000}
-                rtl={isLg}
+                rtl={true}
                 slidesToShow={isLg ? 3 : 1}
-                vertical={!isLg}
                 arrows={isLg}
                 swipe={false}
                 pauseOnHover={isLg}
@@ -79,7 +78,7 @@ const Carousel = () => {
                     key={"אלמה תורג'מן, שכירה בהייטק"}
                     title={"אלמה תורג'מן, שכירה בהייטק"}
                     content={
-                        'היה לי לעונג להכיר את האדם, הנפש, והאשה המדהימה הזו. תמיד נמצאת שם בכדי לסייע, לעזור, לענות על כל שאלה ושאלה ומבצעת את עבודתה על הצד הטוב ביותר ובמהירות בזק. לב ענק ושירות מעל ומעבר. ממליצה בחום!!!!'
+                        'היה לי לעונג להכיר את האדם, הנפש, והאשה המדהימה הזו. תמיד נמצאת שם בכדי לסייע, לעזור, לענות על כל שאלה ושאלה ומבצעת את עבודתה על הצד הטוב ביותר ובמהירות בזק.'
                     }
                 />
                 <Item

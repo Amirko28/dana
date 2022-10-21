@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { IntroQuestion } from '../components/IntroQuestion';
+import { LandingPage } from '../components/LandingPage';
 
 const Home: NextPage = () => {
     return (
@@ -8,7 +8,7 @@ const Home: NextPage = () => {
             <Head>
                 <title>דנה כתר</title>
             </Head>
-            <IntroQuestion />
+            <LandingPage />
         </>
     );
 };

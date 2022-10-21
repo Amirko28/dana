@@ -10,7 +10,6 @@ import { FourthStep } from './questions/FourthStep';
 import { RegisterRequest } from '../models/request';
 import { postRequest } from '../services/request';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 export const Form = () => {
     const { push } = useRouter();
@@ -30,12 +29,6 @@ export const Form = () => {
         watch,
         formState: { errors },
     } = useForm<RegisterRequest>();
-
-    const asd = watch('dischargeDateFromMilitary');
-
-    useEffect(() => {
-        console.log(asd);
-    }, [asd]);
 
     return (
         <form
