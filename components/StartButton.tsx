@@ -34,7 +34,7 @@ export const StartButton = () => (
                                     alt="דנה כתר"
                                     layout="fill"
                                     objectFit="fill"
-                                    priority={true}
+                                    priority
                                 />
                             </div>
                         </div>

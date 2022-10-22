@@ -33,12 +33,14 @@ export const Finish = () => (
                     </Link>
                 </div>
                 <div className="flex items-center justify-center">
-                    <div className="h-32 w-48 rounded-lg drop-shadow-2xl md:mx-36 lg:mx-6 lg:h-60 lg:w-80">
+                    <div className="relative h-32 w-48 rounded-lg drop-shadow-2xl md:mx-36 lg:mx-6 lg:h-60 lg:w-80">
                         <Image
                             className="h-full w-full overflow-hidden rounded-lg border-2 border-primary shadow-2xl"
                             src={RectangleLogo}
                             alt="דנה כתר"
                             layout="fill"
+                            objectFit="fill"
+                            priority
                         />
                     </div>
                 </div>
