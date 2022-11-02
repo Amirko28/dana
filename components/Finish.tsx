@@ -6,9 +6,9 @@ import { linkClassName } from '../styles/tailwind/link';
 export const Finish = () => (
     <div
         dir="rtl"
-        className="flex h-screen w-screen items-center justify-center bg-background py-8 px-4 font-body md:p-20 lg:p-8"
+        className="flex h-screen w-screen items-center justify-center bg-background py-8 px-4 font-body md:p-20 lg:h-full lg:w-full lg:p-8"
     >
-        <div className="flex h-full w-full flex-col justify-center rounded-lg border-2 bg-white drop-shadow-lg  lg:w-3/4">
+        <div className="flex h-full w-full flex-col justify-center rounded-lg border-2 bg-white py-4 drop-shadow-lg  lg:w-3/4">
             <div className="flex h-full w-full flex-col items-center justify-center space-y-24 text-lg font-bold text-secondary lg:space-y-16 lg:text-3xl">
                 <div className="flex flex-col items-center justify-center text-3xl lg:text-6xl">
                     <p className="text-primary">אז נשתמע בקרוב, אה?</p>
