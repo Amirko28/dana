@@ -4,5 +4,14 @@
     "plugin:prettier/recommended",
     "plugin:tailwindcss/recommended"
   ],
-  "plugins": ["tailwindcss"]
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "prettier/prettier": [
+        "error",
+        {
+            "endOfLine": "auto"
+        }
+    ],
+    "linebreak-style": 0
+  }
 }

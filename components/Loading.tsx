@@ -1,12 +1,8 @@
-interface Props {
-    text: string;
-}
-
-export const Loading = ({ text }: Props) => (
-    <div role="status">
+export const Loading = () => (
+    <div className="flex items-center justify-center" role="status">
         <svg
             aria-hidden="true"
-            className="mr-2 h-8 w-8 animate-spin fill-pink-600 text-gray-200 dark:text-gray-300"
+            className="mx-2 h-8 w-8 animate-spin fill-primary"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

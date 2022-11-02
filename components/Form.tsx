@@ -1,70 +1,53 @@
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import { SubmitButton } from './SubmitButton';
-import { labelClassName, TextField } from './TextField';
-import { Loading } from './Loading';
-
-interface RegisterPayload {
-    fullName: string;
-    idNumber: string;
-}
+import { SubmitButton } from './common/form';
+import { labelClassName } from '../styles/tailwind/textLabel';
+import { PersonalInfo } from './questions/PersonalInfo';
+import { FirstStep } from './questions/FirstStep';
+import { SecondStep } from './questions/SecondStep';
+import { ThirdStep } from './questions/ThirdStep';
+import { FourthStep } from './questions/FourthStep';
+import { RegisterRequest } from '../models/request';
+import { postRequest } from '../services/request';
+import { useRouter } from 'next/router';
 
 export const Form = () => {
-    const mutation = useMutation(
-        (registerPayload: RegisterPayload) => {
-            return axios.post('/api/request', registerPayload);
+    const { push } = useRouter();
+
+    const { mutate, isLoading, isError, isSuccess } = useMutation(postRequest, {
+        onSuccess: (data, variables, context) => {
+            reset();
+            push('/finish');
         },
-        {
-            onSuccess: (data, variables, context) => reset(),
-        }
-    );
+    });
 
     const {
         register,
         handleSubmit,
         reset,
+        setValue,
+        watch,
         formState: { errors },
-    } = useForm<RegisterPayload>();
+    } = useForm<RegisterRequest>();
 
     return (
         <form
+            className="my-8 h-full w-full"
             onSubmit={handleSubmit((data) => {
-                mutation.mutate(data);
+                mutate(data);
             })}
         >
-            <div className="space-y-8">
-                <TextField
-                    key="fullName"
-                    displayName="שם מלא"
-                    register={{
-                        ...register('fullName', { required: true }),
-                    }}
-                    fieldError={errors.fullName}
-                />
-                <TextField
-                    key="id"
-                    displayName="מספר ת.ז"
-                    register={{
-                        ...register('idNumber', {
-                            required: true,
-                            validate: (value) =>
-                                value.toString().length === 9 && +value > 0,
-                        }),
-                    }}
-                    fieldError={errors.idNumber}
-                />
+            <div className="space-y-11 rounded-lg border-2 border-tertiary bg-white p-4 shadow-primary drop-shadow-lg">
+                <FirstStep register={register} errors={errors} watch={watch} />
+                <SecondStep register={register} errors={errors} />
+                <ThirdStep register={register} errors={errors} />
+                <FourthStep register={register} errors={errors} setValue={setValue} />
+                <PersonalInfo register={register} errors={errors} />
                 <div className="flex w-full flex-col items-center justify-center space-y-12">
-                    <SubmitButton />
-                    {mutation.isLoading ? (
-                        <Loading text="שולח..." />
-                    ) : mutation.isError ? (
-                        <div className={labelClassName}>התרחשה שגיאה...</div>
-                    ) : mutation.isSuccess ? (
-                        <div className={labelClassName}>פנייה התקבלה!</div>
-                    ) : (
-                        <div className="h-4 w-4"></div>
-                    )}
+                    {isError ? <div className={labelClassName}>התרחשה שגיאה</div> : <></>}
+                    <div className="h-full w-60">
+                        <SubmitButton isLoading={isLoading} />
+                    </div>
                 </div>
             </div>
         </form>

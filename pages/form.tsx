@@ -1,16 +1,16 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { LandingPage } from '../components/LandingPage';
+import { Body } from '../components/Body';
 
-const Home: NextPage = () => {
+const Form: NextPage = () => {
     return (
         <>
             <Head>
                 <title>דנה כתר</title>
             </Head>
-            <LandingPage />
+            <Body />
         </>
     );
 };
 
-export default Home;
+export default Form;
