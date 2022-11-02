@@ -36,7 +36,7 @@ export const DateField = ({ displayName, fieldValue, setValue }: Props) => {
             </div>
             <Calendar
                 view="decade"
-                className={`mr-0 rounded-md !bg-background text-base font-normal self-center text-secondary lg:mr-2`}
+                className={`mr-0 self-center rounded-md !bg-background text-base font-normal text-secondary lg:mr-2`}
                 onClickYear={(date, event) => setSelectedDate(date)}
                 tileClassName={({ date }) => {
                     return isSameYear(date, selectedDate)
