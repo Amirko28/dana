@@ -14,16 +14,12 @@ export const FourthStep = ({ register, errors, setValue }: Props) => {
             <TextArea
                 key="disabledFamily"
                 displayName="האם קיים קרוב משפחה נטול יכולת (פיגור שכלי / עיוור / אוטיזם / לקוי למידה / חירש)?"
-                register={{
-                    ...register('disabledFamily'),
-                }}
+                register={register('disabledFamily')}
             />
             <Radio
                 baseKey="familyHospitalization"
                 displayName="האם אתה משלם כספים עבור אשפוז הורה / בן זוג במוסד שיקומי?"
-                register={{
-                    ...register('familyHospitalization'),
-                }}
+                register={register('familyHospitalization')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -38,9 +34,7 @@ export const FourthStep = ({ register, errors, setValue }: Props) => {
             <Radio
                 baseKey="donations"
                 displayName="האם ביצעת תרומות במהלך השנים 2016-2021 בסכום העולה על 200₪?"
-                register={{
-                    ...register('donations'),
-                }}
+                register={register('donations')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -55,9 +49,7 @@ export const FourthStep = ({ register, errors, setValue }: Props) => {
             <Radio
                 baseKey="degreeEligibility"
                 displayName="האם קיימת זכאות לתואר ראשון / שני?"
-                register={{
-                    ...register('degreeEligibility'),
-                }}
+                register={register('degreeEligibility')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -78,9 +70,7 @@ export const FourthStep = ({ register, errors, setValue }: Props) => {
             <TextArea
                 key="childrenInfo"
                 displayName="אנא ציין את שמות, ת.ז ותאריכי הלידה של ילדיך"
-                register={{
-                    ...register('childrenInfo'),
-                }}
+                register={register('childrenInfo')}
             />
         </>
     );

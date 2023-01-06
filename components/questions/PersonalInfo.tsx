@@ -13,23 +13,19 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             <TextField
                 key="fullName"
                 displayName="שם מלא"
-                register={{
-                    ...register('fullName', { required: true }),
-                }}
+                register={register('fullName', { required: true })}
                 fieldError={errors.fullName}
             />
             <TextField
                 key="email"
                 displayName="אימייל"
-                register={{
-                    ...register('email', {
-                        required: true,
-                        validate: (value) =>
-                            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-                                value.toString()
-                            ),
-                    }),
-                }}
+                register={register('email', {
+                    required: true,
+                    validate: (value) =>
+                        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+                            value.toString()
+                        ),
+                })}
                 fieldError={errors.email}
             />
         </>

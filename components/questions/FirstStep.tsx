@@ -15,9 +15,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
             <Radio
                 baseKey="taxCheck"
                 displayName="האם ביצעת בדיקת החזר מס עבור השנים 2016-2021?"
-                register={{
-                    ...register('taxCheck'),
-                }}
+                register={register('taxCheck')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -36,9 +34,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
             <Checkbox
                 baseKey="marriage"
                 displayName="האם התחתנת (ברבנות) במהלך השנים 2016-2022?"
-                register={{
-                    ...register('marriage'),
-                }}
+                register={register('marriage')}
                 checkboxOptions={[
                     {
                         displayName: 'כן',
@@ -60,16 +56,12 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
                 watch={watch}
                 commentFieldId={'marriageComment'}
                 key="marriage"
-                registerComment={{
-                    ...register('marriageComment'),
-                }}
+                registerComment={register('marriageComment')}
             />
             <Radio
                 baseKey="parallelJobs"
                 displayName="האם במהלך השנים 2016-2021 עבדת במספר עבודות במקביל, או פחות מ-12 חודשים בשנה?"
-                register={{
-                    ...register('parallelJobs'),
-                }}
+                register={register('parallelJobs')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -84,9 +76,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
             <Radio
                 baseKey="independent"
                 displayName="האם במהלך השנים 2016-2022 עבדת גם כעצמאי?"
-                register={{
-                    ...register('independent'),
-                }}
+                register={register('independent')}
                 radioOptions={[
                     {
                         displayName: 'לא',
