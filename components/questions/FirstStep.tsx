@@ -14,7 +14,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
         <>
             <Radio
                 baseKey="taxCheck"
-                displayName="האם ביצעת בדיקת החזר מס עבור השנים 2016-2021?"
+                displayName="האם ביצעת בדיקת החזר מס עבור השנים 2017-2022?"
                 register={register('taxCheck')}
                 radioOptions={[
                     {
@@ -33,7 +33,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
             />
             <Checkbox
                 baseKey="marriage"
-                displayName="האם התחתנת (ברבנות) במהלך השנים 2016-2022?"
+                displayName="האם התחתנת (ברבנות) במהלך השנים 2017-2022?"
                 register={register('marriage')}
                 checkboxOptions={[
                     {
@@ -60,7 +60,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
             />
             <Radio
                 baseKey="parallelJobs"
-                displayName="האם במהלך השנים 2016-2021 עבדת במספר עבודות במקביל, או פחות מ-12 חודשים בשנה?"
+                displayName="האם במהלך השנים 2017-2022 עבדת במספר עבודות במקביל, או פחות מ-12 חודשים בשנה?"
                 register={register('parallelJobs')}
                 radioOptions={[
                     {
@@ -75,7 +75,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
             />
             <Radio
                 baseKey="independent"
-                displayName="האם במהלך השנים 2016-2022 עבדת גם כעצמאי?"
+                displayName="האם במהלך השנים 2017-2022 עבדת גם כעצמאי?"
                 register={register('independent')}
                 radioOptions={[
                     {

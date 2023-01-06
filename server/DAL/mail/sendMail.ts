@@ -36,7 +36,7 @@ export const sendMail = async (request: RequestType) => {
             <p>שם: ${request.fullName}</p>
             <p>אימייל: ${request.email}</p>
             <br/>
-            <p>האם ביצעת בדיקת החזר מס עבור השנים 2016-2021? ${
+            <p>האם ביצעת בדיקת החזר מס עבור השנים 2017-2022? ${
                 request.taxCheck === 'no'
                     ? 'לא'
                     : request.taxCheck === 'yes'
@@ -44,17 +44,17 @@ export const sendMail = async (request: RequestType) => {
                     : 'לא זוכר'
             }</p>
             <br />
-            <p>האם התחתנת (ברבנות) במהלך השנים 2016-2022? ${handleEmptyValue(
+            <p>האם התחתנת (ברבנות) במהלך השנים 2017-2022? ${handleEmptyValue(
                 request.marriage
             )}
             </p>
             <p>פירוט: ${handleEmptyValue(request.marriageComment)}<p>
             <br />
-            <p>האם במהלך השנים 2016-2021 עבדת במספר עבודות במקביל, או פחות מ-12 חודשים בשנה? ${
+            <p>האם במהלך השנים 2017-2022 עבדת במספר עבודות במקביל, או פחות מ-12 חודשים בשנה? ${
                 request.parallelJobs ? 'כן' : 'לא'
             }</p>
             <br />
-            <p>האם במהלך השנים 2016-2022 עבדת גם כעצמאי?  ${
+            <p>האם במהלך השנים 2017-2022 עבדת גם כעצמאי?  ${
                 request.independent ? 'כן' : 'לא'
             }</p>
             <br />
@@ -66,7 +66,7 @@ export const sendMail = async (request: RequestType) => {
                     : 'כן, באופן קבוע'
             }</p>
             <br />
-            <p>האם קיבלת פיצויי פיטורין במהלך השנים 2016-2021 (רלוונטי רק אם השכר גבוה מ-12,000₪)? ${
+            <p>האם קיבלת פיצויי פיטורין במהלך השנים 2017-2022 (רלוונטי רק אם השכר גבוה מ-12,000₪)? ${
                 request.compensation ? 'כן' : 'לא'
             }</p>
             <br />
@@ -74,7 +74,7 @@ export const sendMail = async (request: RequestType) => {
                 request.payedTaxCompensation
             )}</p>
             <br />
-            <p>האם קיבלת בשנים 2016-2021 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)? ${handleEmptyValue(
+            <p>האם קיבלת בשנים 2017-2022 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)? ${handleEmptyValue(
                 handleEmptyValue(request.gotMoneyFromBituhLeumi)
             )}</p>
             <br />
@@ -86,7 +86,7 @@ export const sendMail = async (request: RequestType) => {
                 request.depositedMoney ? 'כן' : 'לא'
             }</p>
             <br />
-            <p>האם הייתה לך פעילות בבורסה שהניבה רווחים/הפסדים במהלך השנים 2016-2021? ${handleEmptyValue(
+            <p>האם הייתה לך פעילות בבורסה שהניבה רווחים/הפסדים במהלך השנים 2017-2022? ${handleEmptyValue(
                 request.stockExchangeActivity
             )}</p>
             <br />
@@ -102,7 +102,7 @@ export const sendMail = async (request: RequestType) => {
                 request.familyHospitalization ? 'כן' : 'לא'
             }</p>
             <br />
-            <p>האם ביצעת תרומות במהלך השנים 2016-2021 בסכום העולה על 200₪? ${
+            <p>האם ביצעת תרומות במהלך השנים 2017-2022 בסכום העולה על 200₪? ${
                 request.donations ? 'כן' : 'לא'
             }</p>
             <br />

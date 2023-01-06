@@ -31,7 +31,7 @@ export const SecondStep = ({ register, errors }: Props) => {
             />
             <Radio
                 baseKey="compensation"
-                displayName="האם קיבלת פיצויי פיטורין במהלך השנים 2016-2021 (רלוונטי רק אם השכר גבוה מ-12,000₪)?"
+                displayName="האם קיבלת פיצויי פיטורין במהלך השנים 2017-2022 (רלוונטי רק אם השכר גבוה מ-12,000₪)?"
                 register={register('compensation')}
                 radioOptions={[
                     {
@@ -52,10 +52,6 @@ export const SecondStep = ({ register, errors }: Props) => {
                     {
                         displayName: 'לא',
                         value: 'no',
-                    },
-                    {
-                        displayName: 'ב2016',
-                        value: '2016',
                     },
                     {
                         displayName: 'ב2017',
@@ -85,7 +81,7 @@ export const SecondStep = ({ register, errors }: Props) => {
             />
             <Checkbox
                 baseKey="gotMoneyFromBituhLeumi"
-                displayName="האם קיבלת בשנים 2016-2021 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
+                displayName="האם קיבלת בשנים 2017-2022 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
                 register={register('gotMoneyFromBituhLeumi')}
                 checkboxOptions={[
                     {

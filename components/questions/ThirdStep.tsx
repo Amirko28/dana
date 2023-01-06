@@ -20,10 +20,6 @@ export const ThirdStep = ({ register, errors }: Props) => {
                         value: 'no',
                     },
                     {
-                        displayName: 'ב2016',
-                        value: '2016',
-                    },
-                    {
                         displayName: 'ב2017',
                         value: '2017',
                     },
@@ -66,16 +62,12 @@ export const ThirdStep = ({ register, errors }: Props) => {
             />
             <Checkbox
                 baseKey="stockExchangeActivity"
-                displayName="האם הייתה לך פעילות בבורסה שהניבה רווחים/הפסדים במהלך השנים 2016-2021?"
+                displayName="האם הייתה לך פעילות בבורסה שהניבה רווחים/הפסדים במהלך השנים 2017-2022?"
                 register={register('stockExchangeActivity')}
                 checkboxOptions={[
                     {
                         displayName: 'לא',
                         value: 'no',
-                    },
-                    {
-                        displayName: 'ב2016',
-                        value: '2016',
                     },
                     {
                         displayName: 'ב2017',
@@ -113,10 +105,6 @@ export const ThirdStep = ({ register, errors }: Props) => {
                         value: 'no',
                     },
                     {
-                        displayName: 'ב2016',
-                        value: '2016',
-                    },
-                    {
                         displayName: 'ב2017',
                         value: '2017',
                     },
@@ -135,6 +123,10 @@ export const ThirdStep = ({ register, errors }: Props) => {
                     {
                         displayName: 'ב2021',
                         value: '2021',
+                    },
+                    {
+                        displayName: 'ב2022',
+                        value: '2022',
                     },
                 ]}
             />
