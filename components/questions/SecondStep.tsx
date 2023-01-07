@@ -13,9 +13,7 @@ export const SecondStep = ({ register, errors }: Props) => {
             <Radio
                 baseKey="cleanedTax"
                 displayName="האם נוכה לך מס הכנסה בתלושי השכר במהלך השנים?"
-                register={{
-                    ...register('cleanedTax'),
-                }}
+                register={register('cleanedTax')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -33,10 +31,8 @@ export const SecondStep = ({ register, errors }: Props) => {
             />
             <Radio
                 baseKey="compensation"
-                displayName="האם קיבלת פיצויי פיטורין במהלך השנים 2016-2021 (רלוונטי רק אם השכר גבוה מ-12,000₪)?"
-                register={{
-                    ...register('compensation'),
-                }}
+                displayName="האם קיבלת פיצויי פיטורין במהלך השנים 2017-2022 (רלוונטי רק אם השכר גבוה מ-12,000₪)?"
+                register={register('compensation')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -51,17 +47,11 @@ export const SecondStep = ({ register, errors }: Props) => {
             <Checkbox
                 baseKey="payedTaxCompensation"
                 displayName="האם שילמת מס על פיצויי פיטורין?"
-                register={{
-                    ...register('payedTaxCompensation'),
-                }}
+                register={register('payedTaxCompensation')}
                 checkboxOptions={[
                     {
                         displayName: 'לא',
                         value: 'no',
-                    },
-                    {
-                        displayName: 'ב2016',
-                        value: '2016',
                     },
                     {
                         displayName: 'ב2017',
@@ -91,10 +81,8 @@ export const SecondStep = ({ register, errors }: Props) => {
             />
             <Checkbox
                 baseKey="gotMoneyFromBituhLeumi"
-                displayName="האם קיבלת בשנים 2016-2021 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
-                register={{
-                    ...register('gotMoneyFromBituhLeumi'),
-                }}
+                displayName="האם קיבלת בשנים 2017-2022 כספים מהמוסד לביטוח לאומי (לא דרך תלוש שכר)?"
+                register={register('gotMoneyFromBituhLeumi')}
                 checkboxOptions={[
                     {
                         displayName: 'לא',

@@ -13,17 +13,11 @@ export const ThirdStep = ({ register, errors }: Props) => {
             <Checkbox
                 baseKey="withdrewMoney"
                 displayName="האם משכת כספים מקרן השתלמות / קופת גמל (לפני הזמן המותר בחוק)?"
-                register={{
-                    ...register('withdrewMoney'),
-                }}
+                register={register('withdrewMoney')}
                 checkboxOptions={[
                     {
                         displayName: 'לא',
                         value: 'no',
-                    },
-                    {
-                        displayName: 'ב2016',
-                        value: '2016',
                     },
                     {
                         displayName: 'ב2017',
@@ -54,9 +48,7 @@ export const ThirdStep = ({ register, errors }: Props) => {
             <Radio
                 baseKey="depositedMoney"
                 displayName="האם הפקדת כספים באופן עצמאי (לא דרך מקום העבודה) לקופת גמל / קרן פנסיה?"
-                register={{
-                    ...register('depositedMoney'),
-                }}
+                register={register('depositedMoney')}
                 radioOptions={[
                     {
                         displayName: 'לא',
@@ -70,18 +62,12 @@ export const ThirdStep = ({ register, errors }: Props) => {
             />
             <Checkbox
                 baseKey="stockExchangeActivity"
-                displayName="האם הייתה לך פעילות בבורסה שהניבה רווחים/הפסדים במהלך השנים 2016-2021?"
-                register={{
-                    ...register('stockExchangeActivity'),
-                }}
+                displayName="האם הייתה לך פעילות בבורסה שהניבה רווחים/הפסדים במהלך השנים 2017-2022?"
+                register={register('stockExchangeActivity')}
                 checkboxOptions={[
                     {
                         displayName: 'לא',
                         value: 'no',
-                    },
-                    {
-                        displayName: 'ב2016',
-                        value: '2016',
                     },
                     {
                         displayName: 'ב2017',
@@ -112,17 +98,11 @@ export const ThirdStep = ({ register, errors }: Props) => {
             <Checkbox
                 baseKey="mashkanta"
                 displayName="האם בוצעו תשלומים למשכנתא במהלך השנים?"
-                register={{
-                    ...register('mashkanta'),
-                }}
+                register={register('mashkanta')}
                 checkboxOptions={[
                     {
                         displayName: 'לא',
                         value: 'no',
-                    },
-                    {
-                        displayName: 'ב2016',
-                        value: '2016',
                     },
                     {
                         displayName: 'ב2017',
@@ -143,6 +123,10 @@ export const ThirdStep = ({ register, errors }: Props) => {
                     {
                         displayName: 'ב2021',
                         value: '2021',
+                    },
+                    {
+                        displayName: 'ב2022',
+                        value: '2022',
                     },
                 ]}
             />
