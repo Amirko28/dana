@@ -33,7 +33,7 @@ export const FirstStep = ({ register, errors, watch }: Props) => {
             />
             <Checkbox
                 baseKey="marriage"
-                displayName="האם התחתנת (ברבנות) במהלך השנים 2017-2022?"
+                displayName="האם התחתנת (ברבנות)?"
                 register={register('marriage')}
                 checkboxOptions={[
                     {
