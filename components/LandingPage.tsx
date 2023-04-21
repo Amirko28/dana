@@ -7,7 +7,7 @@ export const LandingPage = () => {
     return (
         <div
             dir="rtl"
-            className="flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-background py-4 font-body lg:h-full lg:w-full"
+            className="flex h-screen w-screen flex-col items-center justify-center space-y-4 bg-background py-4 font-body lg:h-screen lg:w-screen"
         >
             <div className="mt-4 flex h-full w-5/6 flex-col space-y-4 lg:w-11/12 lg:space-y-12">
                 <StartButton />

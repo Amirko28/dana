@@ -89,7 +89,7 @@ export const SecondStep = ({ register, errors }: Props) => {
                         value: 'no',
                     },
                     {
-                        displayName: 'דמי למידה',
+                        displayName: 'דמי לידה',
                         value: 'dmeiLeida',
                     },
                     {
