@@ -11,7 +11,7 @@ export const StartButton = () => (
                 h-7/12
                 cursor-pointer
                 active:shadow-lg
-                lg:h-96
+                lg:h-2/3
                 `}
         >
             <section className="h-full rounded-md bg-white bg-gradient-to-b from-white via-blue-200 to-blue-300 drop-shadow-2xl lg:bg-gradient-to-l">

@@ -44,9 +44,7 @@ export const sendMail = async (request: RequestType) => {
                     : 'לא זוכר'
             }</p>
             <br />
-            <p>האם התחתנת (ברבנות) במהלך השנים 2017-2022? ${handleEmptyValue(
-                request.marriage
-            )}
+            <p>האם התחתנת (ברבנות)? ${handleEmptyValue(request.marriage)}
             </p>
             <p>פירוט: ${handleEmptyValue(request.marriageComment)}<p>
             <br />
